@@ -1,0 +1,90 @@
+[
+  {
+    "id": "lobulo-oreja",
+    "title": "Lóbulo de la Oreja",
+    "type": "lobulo",
+    "size": "pequeño",
+    "location": "lobulo",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "helix-simple",
+    "title": "Hélix Simple",
+    "type": "helix",
+    "size": "pequeño",
+    "location": "helix",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "concha-piercing",
+    "title": "Concha",
+    "type": "concha",
+    "size": "mediano",
+    "location": "concha",
+    "material": "titanio",
+    "image": "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "tragus-piercing",
+    "title": "Tragus",
+    "type": "tragus",
+    "size": "pequeño",
+    "location": "tragus",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "industrial-piercing",
+    "title": "Industrial",
+    "type": "industrial",
+    "size": "grande",
+    "location": "helix",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1590736969955-71cc94901144?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "daith-piercing",
+    "title": "Daith",
+    "type": "daith",
+    "size": "mediano",
+    "location": "daith",
+    "material": "titanio",
+    "image": "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "rook-piercing",
+    "title": "Rook",
+    "type": "rook",
+    "size": "mediano",
+    "location": "rook",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "anti-tragus-piercing",
+    "title": "Anti-Tragus",
+    "type": "anti-tragus",
+    "size": "pequeño",
+    "location": "anti-tragus",
+    "material": "acero-quirurgico",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  }
+]

@@ -3,20 +3,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 
-interface Project {
+interface GalleryItem {
   id: string;
   title: string;
-  style: string;
+  image: string;
+  width: number;
+  height: number;
+  category: "tattoos" | "piercings";
+  // Propiedades específicas de tatuajes
+  style?: string;
+  color?: string;
+  // Propiedades específicas de piercings
+  type?: string;
+  material?: string;
+  // Propiedades comunes
   size: string;
   location: string;
-  color: string;
-  image: string;
 }
 
 interface ImageModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: Project | null;
+  project: GalleryItem | null;
   onPrevious: () => void;
   onNext: () => void;
   hasPrevious: boolean;
@@ -50,6 +58,27 @@ export default function ImageModal({
   }, [isOpen, onClose]);
 
   if (!project) return null;
+
+  // Determinar qué tags mostrar basado en la categoría
+  const getTags = () => {
+    if (project.category === "tattoos") {
+      return [
+        { label: project.style || "", key: "style" },
+        { label: project.size, key: "size" },
+        { label: project.location, key: "location" },
+        { label: project.color || "", key: "color" }
+      ].filter(tag => tag.label);
+    } else {
+      return [
+        { label: project.type || "", key: "type" },
+        { label: project.size, key: "size" },
+        { label: project.location, key: "location" },
+        { label: project.material || "", key: "material" }
+      ].filter(tag => tag.label);
+    }
+  };
+
+  const tags = getTags();
 
   return (
     <AnimatePresence>
@@ -116,10 +145,11 @@ export default function ImageModal({
             <div className="mt-4 text-center text-white">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-                <span className="px-3 py-1 bg-white/10 rounded-full">{project.style}</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full">{project.size}</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full">{project.location}</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full">{project.color}</span>
+                {tags.map((tag) => (
+                  <span key={tag.key} className="px-3 py-1 bg-white/10 rounded-full">
+                    {tag.label}
+                  </span>
+                ))}
               </div>
             </div>
 
