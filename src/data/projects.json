@@ -1,0 +1,90 @@
+[
+  {
+    "id": "fineline-rose",
+    "title": "Fineline Rose",
+    "style": "fineline",
+    "size": "pequeño",
+    "location": "antebrazo",
+    "color": "negro-y-gris",
+    "image": "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "blackwork-sleeve",
+    "title": "Blackwork Sleeve",
+    "style": "blackwork",
+    "size": "grande",
+    "location": "brazo",
+    "color": "negro-y-gris",
+    "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "realism-portrait",
+    "title": "Realism Portrait",
+    "style": "realismo",
+    "size": "mediano",
+    "location": "espalda",
+    "color": "negro-y-gris",
+    "image": "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "minimal-symbol",
+    "title": "Minimal Symbol",
+    "style": "minimalista",
+    "size": "pequeño",
+    "location": "muñeca",
+    "color": "negro-y-gris",
+    "image": "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "geometric-mandala",
+    "title": "Geometric Mandala",
+    "style": "geometrico",
+    "size": "mediano",
+    "location": "pierna",
+    "color": "negro-y-gris",
+    "image": "https://images.unsplash.com/photo-1590736969955-71cc94901144?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "watercolor-flower",
+    "title": "Watercolor Flower",
+    "style": "acuarela",
+    "size": "mediano",
+    "location": "hombro",
+    "color": "color",
+    "image": "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "neo-traditional-eagle",
+    "title": "Neo Traditional Eagle",
+    "style": "neo-traditional",
+    "size": "grande",
+    "location": "pecho",
+    "color": "color",
+    "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "id": "japanese-dragon",
+    "title": "Japanese Dragon",
+    "style": "japones",
+    "size": "grande",
+    "location": "espalda",
+    "color": "color",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1600&auto=format&fit=crop",
+    "width": 1600,
+    "height": 1067
+  }
+]

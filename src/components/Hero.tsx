@@ -1,0 +1,125 @@
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { hero } from "@/app/constants/constants";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 3000 })]
+  );
+
+  // Carrusel de estilos (marquee)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStyleIndex((prev) => (prev + 1) % hero.styles.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="pt-16 pb-20">
+      <div className="container">
+        {/* Hero principal */}
+        <div className="text-center space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4"
+          >
+            {hero.title}
+          </motion.h1>
+          
+          {/* Carrusel de estilos (Marquee Effect) */}
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[color:var(--color-primary)] font-medium px-4 h-8 sm:h-10 flex items-center justify-center"
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentStyleIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="absolute"
+              >
+                {hero.styles[currentStyleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-base sm:text-lg md:text-xl text-[color:var(--color-muted)] max-w-3xl mx-auto leading-relaxed px-4"
+          >
+            {hero.subtitle}
+          </motion.p>
+        </div>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
+        >
+          <a 
+            href={hero.primaryCta.href} 
+            className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors text-center"
+          >
+            {hero.primaryCta.label}
+          </a>
+          <a 
+            href={hero.secondaryCta.href} 
+            className="w-full sm:w-auto border-2 border-white/30 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg hover:bg-white/5 transition-colors text-center"
+          >
+            {hero.secondaryCta.label}
+          </a>
+        </motion.div>
+
+        {/* Carrusel de imágenes destacadas */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-12 sm:mt-16 lg:mt-20 max-w-4xl mx-auto px-4"
+        >
+          <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/10">
+            <div ref={emblaRef}>
+              <div className="flex">
+                {hero.featuredImages.map((image) => (
+                  <div key={image.id} className="min-w-0 flex-[0_0_100%]">
+                    <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] relative">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 60vw"
+                        priority={false}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
