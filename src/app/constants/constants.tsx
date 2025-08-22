@@ -22,21 +22,11 @@ export const company = {
 };
 
 export const navigation = [
-  {
-    id: "0",
-    title: "Inicio",
-    url: "/",
-  },
-  {
-    id: "1",
-    title: "Galería",
-    url: "/galeria",
-  },
-  {
-    id: "2",
-    title: "Contacto",
-    url: "/contacto",
-  },
+  { id: "0", title: "Inicio", url: "/" },
+  { id: "1", title: "Galería", url: "/galeria" },
+  { id: "2", title: "Servicios", url: "/servicios" },
+  { id: "3", title: "Nosotros", url: "/nosotros" },
+  { id: "4", title: "Contacto", url: "/contacto" },
 ];
 
 export const hero = {

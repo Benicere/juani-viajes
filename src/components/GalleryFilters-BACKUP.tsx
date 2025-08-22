@@ -1,3 +1,16 @@
+/*
+SISTEMA DE FILTROS COMPLETO - GUARDADO PARA IMPLEMENTACIÓN FUTURA
+
+Este archivo contiene todo el sistema de filtros con categorías (Tatuajes/Piercings) 
+que se puede implementar nuevamente en la galería cuando se necesite.
+
+Para implementar: 
+1. Renombrar este archivo a GalleryFilters.tsx
+2. Actualizar las importaciones en Gallery.tsx
+3. Descomentar el código de filtros en Gallery.tsx
+
+*/
+
 "use client";
 import { useState } from "react";
 
