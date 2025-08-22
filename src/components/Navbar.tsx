@@ -30,11 +30,6 @@ export default function Navbar() {
           ))}
         </nav>
         
-        {/* Desktop CTA */}
-        <Link href="/contacto" className="hidden sm:block rounded-md bg-[color:var(--color-primary)] px-6 py-3 text-base sm:text-lg font-medium">
-          Reservar turno
-        </Link>
-        
         {/* Mobile Menu Button */}
         <button 
           className="sm:hidden flex flex-col justify-center items-center w-6 h-6 gap-1"
@@ -61,13 +56,6 @@ export default function Navbar() {
                 {link.title}
               </Link>
             ))}
-            <Link 
-              href="/contacto" 
-              className="block w-full text-center bg-[color:var(--color-primary)] px-4 py-2 rounded-md font-medium mt-4"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Reservar turno
-            </Link>
           </nav>
         </div>
       )}
