@@ -31,9 +31,9 @@ export const navigation = [
 
 export const hero = {
   title: "Arte en la piel, hecho a medida",
-  subtitle: "Especialistas en fineline, blackwork y realismo. Reservá tu turno y diseñamos juntos tu próximo tattoo.",
+  subtitle: "Especialistas en fineline, blackwork y realismo. Contactanos y diseñamos juntos tu próximo tattoo.",
   primaryCta: { label: "Ver trabajos", href: "/galeria" },
-  secondaryCta: { label: "Reservar turno", href: "/contacto" },
+  secondaryCta: { label: "Contactanos", href: "https://wa.me/5491112345678" },
   styles: [
     "Fineline",
     "Blackwork", 
