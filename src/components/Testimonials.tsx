@@ -54,7 +54,7 @@ export default function Testimonials() {
               </div>
               
               <p className="text-[color:var(--color-muted)] text-sm leading-relaxed italic">
-                "{testimonial.text}"
+                &ldquo;{testimonial.text}&rdquo;
               </p>
             </motion.div>
           ))}

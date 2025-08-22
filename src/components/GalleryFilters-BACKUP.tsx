@@ -107,7 +107,6 @@ const piercingFilterOptions = {
 };
 
 export default function GalleryFilters({ activeFilters, onFilterChange, onCategoryChange, projectCount }: GalleryFiltersProps) {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<CategoryType>(activeFilters.category);
 
   const handleCategoryChange = (category: CategoryType) => {

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start" },
     [Autoplay({ delay: 3000 })]
   );

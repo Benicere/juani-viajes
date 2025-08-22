@@ -7,6 +7,14 @@ import { gallery } from "@/app/constants/constants";
 import ImageModal from "./ImageModal";
 import { motion } from "framer-motion";
 
+interface GalleryItem {
+  id: string;
+  title: string;
+  image: string;
+  category: string;
+  style: string;
+}
+
 // Datos de la galería - 5 tatuajes y 5 piercings
 const galleryItems = [
   // TATUAJES
@@ -92,11 +100,6 @@ export default function Gallery() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
-  const handleImageClick = (index: number) => {
-    setSelectedProjectIndex(index);
-    setModalOpen(true);
-  };
-
   const handleModalClose = () => {
     setModalOpen(false);
   };
@@ -117,7 +120,7 @@ export default function Gallery() {
     if (!emblaApi) return;
   }, [emblaApi]);
 
-  const openModal = (project: any) => {
+  const openModal = (project: GalleryItem) => {
     setSelectedProjectIndex(galleryItems.findIndex(item => item.id === project.id));
     setModalOpen(true);
   };
