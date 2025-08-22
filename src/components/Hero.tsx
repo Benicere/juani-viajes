@@ -82,6 +82,8 @@ export default function Hero() {
           </a>
           <a 
             href={hero.secondaryCta.href} 
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto border-2 border-white/30 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg hover:bg-white/5 transition-colors text-center"
           >
             {hero.secondaryCta.label}
