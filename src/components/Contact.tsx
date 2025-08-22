@@ -1,5 +1,8 @@
 "use client";
 import { company } from "@/app/constants/constants";
+import WhatsappIcon from "@/components/icons/WhatsappIcon";
+import InstagramIcon from "@/components/icons/InstagramIcon";
+import FacebookIcon from "@/components/icons/FacebookIcon";
 
 export default function Contact() {
   return (
@@ -65,7 +68,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
-                    <span className="text-lg">📷</span>
+                    <InstagramIcon className="w-5 h-5 text-[#e5e7eb]" />
                     Instagram
                   </a>
                 )}
@@ -76,7 +79,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
-                    <span className="text-lg">📘</span>
+                    <FacebookIcon className="w-5 h-5 text-[#e5e7eb]" />
                     Facebook
                   </a>
                 )}
@@ -85,25 +88,13 @@ export default function Contact() {
                     href={`https://wa.me/${company.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md bg-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/90 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
-                    <span className="text-lg">💬</span>
+                    <WhatsappIcon className="w-5 h-5 text-[#e5e7eb]" />
                     WhatsApp
                   </a>
                 )}
               </div>
-            </div>
-
-            {/* CTA de reserva */}
-            <div className="pt-3 sm:pt-4">
-              <a
-                href={`https://wa.me/${company.whatsapp}?text=Hola! Quiero reservar un turno para un tatuaje`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-full text-center bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors text-sm sm:text-base"
-              >
-                Reservar turno
-              </a>
             </div>
           </div>
         </div>

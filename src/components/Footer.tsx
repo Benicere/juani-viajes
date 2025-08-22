@@ -1,6 +1,10 @@
 import { company, navigation } from "@/app/constants/constants";
 import Image from "next/image";
 import Link from "next/link";
+import GrvityLogo from "./icons/GrvityLogo";
+import WhatsappIcon from "./icons/WhatsappIcon";
+import InstagramIcon from "./icons/InstagramIcon";
+import FacebookIcon from "./icons/FacebookIcon";
 
 export default function Footer() {
   return (
@@ -10,11 +14,11 @@ export default function Footer() {
         <div className="text-center mb-6">
           <div className="flex justify-center mb-4">
             <Image
-              src="/logo.png"
+              src="/company/logo.webp"
               alt={company.name}
-              width={100}
-              height={35}
-              className="h-7 w-auto"
+              width={140}
+              height={50}
+              className="h-10 w-auto sm:h-12"
             />
           </div>
           
@@ -34,10 +38,10 @@ export default function Footer() {
               href={`https://wa.me/${company.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[color:var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[color:var(--color-primary)]/90 transition-colors"
+              className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="WhatsApp"
             >
-              <span className="text-white text-lg">💬</span>
+              <WhatsappIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
             </a>
           )}
           
@@ -46,10 +50,10 @@ export default function Footer() {
               href={`https://instagram.com/${company.instagram}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-colors"
+              className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="Instagram"
             >
-              <span className="text-lg">📷</span>
+              <InstagramIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
             </a>
           )}
           
@@ -58,10 +62,10 @@ export default function Footer() {
               href={`https://facebook.com/${company.facebook}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+              className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="Facebook"
             >
-              <span className="text-lg">📘</span>
+              <FacebookIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
             </a>
           )}
         </div>
@@ -84,8 +88,15 @@ export default function Footer() {
             © Copyright {new Date().getFullYear()} - {company.name}
           </div>
           
-          <div className="text-xs text-[color:var(--color-muted)]">
-            Desarrollado por: <span className="text-white">Augusto</span>
+          <div className='flex items-center justify-center gap-2'>
+            <span className='text-[color:var(--color-muted)] text-xs'>Desarrollado por:</span>
+            <a
+              href='https://www.agenciagrvity.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <GrvityLogo className='w-32 text-white hover:text-[#D1FA2D] transition-colors' />
+            </a>
           </div>
         </div>
       </div>

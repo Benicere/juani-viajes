@@ -19,6 +19,14 @@ export const company = {
     { day: "Domingo", hours: ["Cerrado"] },
   ],
   footer: "Arte en la piel, hecho a medida con dedicación y pasión.",
+  description: "Somos un estudio de tatuajes profesional con más de 10 años de experiencia, especializados en fineline, blackwork, realismo y piercings. Nuestro compromiso es crear arte único y personalizado en un ambiente seguro y profesional.",
+  highlights: [
+    "Más de 10 años de experiencia",
+    "Estudio certificado y seguro",
+    "Materiales de primera calidad",
+    "Artistas especializados",
+    "Diseños personalizados"
+  ]
 };
 
 export const navigation = [
@@ -33,7 +41,7 @@ export const hero = {
   title: "Arte en la piel, hecho a medida",
   subtitle: "Especialistas en fineline, blackwork y realismo. Contactanos y diseñamos juntos tu próximo tattoo.",
   primaryCta: { label: "Ver trabajos", href: "/galeria" },
-  secondaryCta: { label: "Consultar", href: "https://wa.me/5491112345678" },
+  secondaryCta: { label: "Consultar", href: `https://wa.me/${company.whatsapp}` },
   styles: [
     "Fineline",
     "Blackwork", 

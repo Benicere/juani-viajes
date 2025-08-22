@@ -10,13 +10,27 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-black/30 border-b border-white/10">
       <div className="container flex items-center justify-between h-16 sm:h-24">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-3">
+          {/* Favicon - Solo aparece si existe */}
           <Image
-            src="/logo.png"
+            src="/company/favicon.webp"
+            alt="Favicon"
+            width={32}
+            height={32}
+            className="h-8 w-8 sm:h-10 sm:w-10"
+            priority
+            onError={(e) => {
+              // Si no existe el favicon, ocultar el elemento
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
+          />
+          <Image
+            src="/company/logo.webp"
             alt={company.name}
-            width={120}
-            height={40}
-            className="h-8 sm:h-10 w-auto"
+            width={160}
+            height={60}
+            className="h-10 w-auto sm:h-12 lg:h-14"
             priority
           />
         </Link>

@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     template: `%s | Estudio de Tatuajes`,
   },
   description: metadataCompany.description,
+  icons: {
+    icon: '/company/favicon.webp',
+    shortcut: '/company/favicon.webp',
+    apple: '/company/apple-touch-icon.webp',
+  },
   openGraph: {
     title: metadataCompany.title,
     description: metadataCompany.description,

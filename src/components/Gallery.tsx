@@ -5,79 +5,82 @@ import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useState } from "react";
 import { gallery } from "@/app/constants/constants";
 import ImageModal from "./ImageModal";
+import { motion } from "framer-motion";
 
-// Datos de la galería simplificada - 10 imágenes atractivas
+// Datos de la galería - 5 tatuajes y 5 piercings
 const galleryItems = [
+  // TATUAJES
   {
     id: "tattoo-1",
-    title: "Fineline Rose",
+    title: "Tatuaje Fineline",
+    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
     category: "Tatuaje",
-    style: "Fineline",
-    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=1600&auto=format&fit=crop",
+    style: "Fineline"
   },
   {
     id: "tattoo-2",
-    title: "Blackwork Sleeve",
+    title: "Tatuaje Blackwork",
+    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop",
     category: "Tatuaje",
-    style: "Blackwork",
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop",
+    style: "Blackwork"
   },
   {
     id: "tattoo-3",
-    title: "Realism Portrait",
+    title: "Tatuaje Realismo",
+    image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=800&auto=format&fit=crop",
     category: "Tatuaje",
-    style: "Realismo",
-    image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "piercing-1",
-    title: "Hélix Industrial",
-    category: "Piercing",
-    style: "Industrial",
-    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop",
+    style: "Realismo"
   },
   {
     id: "tattoo-4",
-    title: "Minimal Symbol",
+    title: "Tatuaje Minimalista",
+    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
     category: "Tatuaje",
-    style: "Minimalista",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "piercing-2",
-    title: "Concha Daith",
-    category: "Piercing",
-    style: "Daith",
-    image: "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?q=80&w=1600&auto=format&fit=crop",
+    style: "Minimalista"
   },
   {
     id: "tattoo-5",
-    title: "Geometric Mandala",
+    title: "Tatuaje Neo Traditional",
+    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
     category: "Tatuaje",
-    style: "Geométrico",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1600&auto=format&fit=crop",
+    style: "Neo Traditional"
+  },
+  // PIERCINGS
+  {
+    id: "piercing-1",
+    title: "Piercing Industrial",
+    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
+    category: "Piercing",
+    style: "Industrial"
+  },
+  {
+    id: "piercing-2",
+    title: "Piercing Helix",
+    image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=800&auto=format&fit=crop",
+    category: "Piercing",
+    style: "Helix"
   },
   {
     id: "piercing-3",
-    title: "Tragus Rook",
+    title: "Piercing Septum",
+    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
     category: "Piercing",
-    style: "Rook",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    id: "tattoo-6",
-    title: "Watercolor Flower",
-    category: "Tatuaje",
-    style: "Acuarela",
-    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=1600&auto=format&fit=crop",
+    style: "Septum"
   },
   {
     id: "piercing-4",
-    title: "Lóbulo Apilado",
+    title: "Piercing Labret",
+    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop",
     category: "Piercing",
-    style: "Lóbulo",
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop",
+    style: "Labret"
   },
+  {
+    id: "piercing-5",
+    title: "Piercing Ombligo",
+    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
+    category: "Piercing",
+    style: "Ombligo"
+  }
 ];
 
 export default function Gallery() {
@@ -113,6 +116,11 @@ export default function Gallery() {
   useEffect(() => {
     if (!emblaApi) return;
   }, [emblaApi]);
+
+  const openModal = (project: any) => {
+    setSelectedProjectIndex(galleryItems.findIndex(item => item.id === project.id));
+    setModalOpen(true);
+  };
 
   return (
     <section id="gallery" className="py-12 sm:py-16">
@@ -151,33 +159,79 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* Grid principal - Responsive y atractivo */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-          {galleryItems.map((item, index) => (
-            <div key={item.id} className="group relative aspect-square overflow-hidden rounded-lg border border-white/10 hover:scale-105 transition-all duration-300">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 20vw, 20vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              
-              {/* Overlay con información */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <h3 className="text-sm font-semibold mb-1">{item.title}</h3>
-                  <p className="text-xs text-white/80 mb-2">{item.style}</p>
-                  <span className="inline-block px-2 py-1 bg-[color:var(--color-primary)] text-white text-xs rounded-full">
-                    {item.category}
-                  </span>
-                </div>
-              </div>
-              
-              {/* Click overlay solo en desktop */}
-              <div className="hidden lg:block absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors cursor-pointer" onClick={() => handleImageClick(index)} />
+        {/* Galería principal - Solo visible en desktop */}
+        <div className="hidden lg:block">
+          {/* Sección Tatuajes */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              Tatuajes
+            </h3>
+            <div className="grid grid-cols-2 xl:grid-cols-3 gap-6">
+              {galleryItems.filter(item => item.category === "Tatuaje").map((item) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="group cursor-pointer"
+                  onClick={() => openModal(item)}
+                >
+                  <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 1280px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                    
+                    {/* Overlay con información */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <h4 className="text-white font-semibold text-lg">{item.title}</h4>
+                      <p className="text-white/80 text-sm">{item.style}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Sección Piercings */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              Piercings
+            </h3>
+            <div className="grid grid-cols-2 xl:grid-cols-3 gap-6">
+              {galleryItems.filter(item => item.category === "Piercing").map((item) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="group cursor-pointer"
+                  onClick={() => openModal(item)}
+                >
+                  <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 1280px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                    
+                    {/* Overlay con información */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <h4 className="text-white font-semibold text-lg">{item.title}</h4>
+                      <p className="text-white/80 text-sm">{item.style}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       
