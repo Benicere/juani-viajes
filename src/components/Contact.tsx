@@ -59,14 +59,14 @@ export default function Contact() {
 
             {/* Redes sociales */}
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)]">Seguinos</h3>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)] text-center">Seguinos</h3>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 {company.instagram && (
                   <a
                     href={`https://instagram.com/${company.instagram}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
                     <InstagramIcon className="w-5 h-5 text-[#e5e7eb]" />
                     Instagram
@@ -77,7 +77,7 @@ export default function Contact() {
                     href={`https://facebook.com/${company.facebook}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
                     <FacebookIcon className="w-5 h-5 text-[#e5e7eb]" />
                     Facebook
@@ -88,7 +88,7 @@ export default function Contact() {
                     href={`https://wa.me/${company.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
                   >
                     <WhatsappIcon className="w-5 h-5 text-[#e5e7eb]" />
                     WhatsApp
