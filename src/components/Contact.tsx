@@ -9,8 +9,8 @@ export default function Contact() {
     <section id="contact" className="py-12 sm:py-16">
       <div className="container space-y-8 sm:space-y-12">
         <div className="text-center space-y-3 sm:space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Contacto</h2>
-          <p className="text-sm sm:text-base text-[color:var(--color-muted)] max-w-2xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[color:var(--color-primary)]">¿Listo para tu próximo tatuaje?</h2>
+          <p className="text-base sm:text-lg md:text-xl text-[color:var(--color-muted)] max-w-2xl mx-auto px-4">
             Visitá nuestro estudio o contactanos para reservar tu turno
           </p>
         </div>
@@ -19,12 +19,12 @@ export default function Contact() {
           {/* Mapa y ubicación */}
           <div className="space-y-4 sm:space-y-6">
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold">Ubicación</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)]">Ubicación</h3>
               <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
-                <p>{company.adress}</p>
-                <p>{company.city}</p>
-                <p>Tel: {company.telephone}</p>
-                <p>Email: {company.email}</p>
+                <p className="text-white">{company.adress}</p>
+                <p className="text-white">{company.city}</p>
+                <p className="text-white">Tel: {company.telephone}</p>
+                <p className="text-white">Email: {company.email}</p>
               </div>
             </div>
             
@@ -46,12 +46,12 @@ export default function Contact() {
           <div className="space-y-6 sm:space-y-8">
             {/* Horarios */}
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold">Horarios de atención</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)]">Horarios de atención</h3>
               <div className="space-y-1 sm:space-y-2">
                 {company.openDays.map((day, index) => (
                   <div key={index} className="flex justify-between text-sm sm:text-base">
-                    <span className="text-[color:var(--color-muted)]">{day.day}</span>
-                    <span>{day.hours.join(", ")}</span>
+                    <span className="text-white font-medium">{day.day}</span>
+                    <span className="text-white">{day.hours.join(", ")}</span>
                   </div>
                 ))}
               </div>
@@ -59,7 +59,7 @@ export default function Contact() {
 
             {/* Redes sociales */}
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold">Seguinos</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)]">Seguinos</h3>
               <div className="flex flex-col sm:flex-row gap-3">
                 {company.instagram && (
                   <a

@@ -1,21 +1,33 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0b0b0b;
-  --color-foreground: #f3f3f3;
-  --color-muted: #999999;
+  --color-background: #000000;
+  --color-foreground: #ffffff;
   --color-primary: #e11d48;
+  --color-muted: #9ca3af;
+  --color-accent: #3b82f6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
   --font-sans: var(--font-poppins);
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll; /* Forzar scrollbar siempre visible para evitar que el logo se mueva */
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  padding-top: 64px; /* Compensar altura del navbar fijo */
+}
+
+@media (min-width: 640px) {
+  body {
+    padding-top: 96px; /* Compensar altura del navbar en pantallas más grandes */
+  }
 }
 
 .container {

@@ -11,115 +11,42 @@ export default function NosotrosPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-black text-white">
-        {/* Nuestros Inicios */}
+        {/* Layout 50/50: Nuestros Inicios + Imagen */}
         <section className="py-20">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
-                Nuestros Inicios
-              </h2>
-              <p className="text-lg sm:text-xl text-[color:var(--color-muted)] leading-relaxed max-w-3xl mx-auto">
-                Todo comenzó en 2012, cuando un grupo de apasionados artistas decidimos crear un espacio 
-                donde el arte del tatuaje fuera más que un simple servicio. Queríamos construir un lugar 
-                donde cada cliente se sintiera parte de nuestra familia, donde cada diseño contara una historia única.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Imágenes Destacadas */}
-        <section className="py-16">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Nuestro Espacio de Trabajo
-              </h2>
-              <p className="text-lg text-[color:var(--color-muted)] max-w-3xl mx-auto">
-                Conocé el ambiente donde creamos cada obra de arte, diseñado para tu comodidad y seguridad
-              </p>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Imagen 1: Estudio */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Nuestros Inicios - 50% */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.6 }}
+                className="max-w-2xl"
               >
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10 mb-4">
-                  <Image
-                    src="/nosotros/nosotros-1.webp"
-                    alt="Estudio de tatuajes - Ambiente profesional"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-[color:var(--color-primary)]">
-                  Nuestro Estudio
-                </h3>
-                <p className="text-[color:var(--color-muted)] text-sm leading-relaxed">
-                  Un espacio diseñado pensando en tu comodidad, con equipamiento de primera línea y un ambiente que te hará sentir como en casa.
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+                  Nuestros Inicios
+                </h2>
+                <p className="text-lg sm:text-xl text-[color:var(--color-muted)] leading-relaxed">
+                  Todo comenzó en 2012, cuando un grupo de apasionados artistas decidimos crear un espacio
+                  donde el arte del tatuaje fuera más que un simple servicio. Queríamos construir un lugar
+                  donde cada cliente se sintiera parte de nuestra familia, donde cada diseño contara una historia única.
                 </p>
               </motion.div>
 
-              {/* Imagen 2: Artista Trabajando */}
+              {/* Imagen nosotros-1 - 50% */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10"
               >
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10 mb-4">
-                  <Image
-                    src="/nosotros/nosotros-2.webp"
-                    alt="Artista trabajando en tatuaje"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-[color:var(--color-primary)]">
-                  Pasión en Acción
-                </h3>
-                <p className="text-[color:var(--color-muted)] text-sm leading-relaxed">
-                  Nuestros artistas trabajan con dedicación absoluta, transformando cada idea en una obra de arte única y personalizada.
-                </p>
-              </motion.div>
-
-              {/* Imagen 3: Equipamiento */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-center"
-              >
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10 mb-4">
-                  <Image
-                    src="/nosotros/nosotros-3.webp"
-                    alt="Equipamiento profesional"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-[color:var(--color-primary)]">
-                  Tecnología de Vanguardia
-                </h3>
-                <p className="text-[color:var(--color-muted)] text-sm leading-relaxed">
-                  Utilizamos equipamiento de última generación y materiales premium para garantizar la mejor calidad y seguridad en cada trabajo.
-                </p>
+                <Image
+                  src="/nosotros/nosotros-1.webp"
+                  alt="Estudio de tatuajes - Ambiente profesional"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/20" />
               </motion.div>
             </div>
           </div>
@@ -256,7 +183,7 @@ export default function NosotrosPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contacto"
-                  className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-black font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
+                  className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
                 >
                   Agendar consulta
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

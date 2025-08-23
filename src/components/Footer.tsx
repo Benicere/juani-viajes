@@ -22,7 +22,7 @@ export default function Footer() {
             />
           </div>
           
-          <nav className="flex justify-center gap-6 text-sm text-[color:var(--color-muted)]">
+          <nav className="flex justify-center gap-6 text-base text-[color:var(--color-muted)]">
             {navigation.map((link) => (
               <Link key={link.id} href={link.url} className="hover:text-white transition-colors">
                 {link.title}
@@ -72,24 +72,28 @@ export default function Footer() {
 
         {/* Información de contacto */}
         <div className="text-center mb-6">
-          <div className="text-sm text-[color:var(--color-muted)] space-y-1">
+          <div className="text-base text-[color:var(--color-muted)] space-y-1">
             <p>{company.adress}, {company.city}</p>
             <p>{company.email}</p>
           </div>
         </div>
 
-        {/* Copyright y descripción */}
-        <div className="text-center space-y-2">
-          <p className="text-sm text-[color:var(--color-muted)]">
-            {company.footer}
-          </p>
-          
-          <div className="text-xs text-[color:var(--color-muted)]">
+      </div>
+      
+      {/* Línea separadora - Fuera del container para ancho completo */}
+      <div className="border-t-2 border-[color:var(--color-primary)] my-6"></div>
+      
+      {/* Copyright y desarrollado por en esquinas opuestas */}
+      <div className="container">
+        <div className="flex justify-between items-center text-sm text-[color:var(--color-muted)]">
+          {/* Copyright - Esquina izquierda */}
+          <div>
             © Copyright {new Date().getFullYear()} - {company.name}
           </div>
           
-          <div className='flex items-center justify-center gap-2'>
-            <span className='text-[color:var(--color-muted)] text-xs'>Desarrollado por:</span>
+          {/* Desarrollado por - Esquina derecha */}
+          <div className='flex items-center gap-2'>
+            <span>Desarrollado por:</span>
             <a
               href='https://www.agenciagrvity.com/'
               target='_blank'

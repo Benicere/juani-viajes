@@ -77,7 +77,7 @@ export default function IntroSection() {
           </p>
           <Link
             href='/nosotros'
-            className='bg-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/90 transition-colors px-4 md:px-6 py-3 text-black font-semibold rounded mt-3 text-sm md:text-base'
+            className='bg-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/90 transition-colors px-4 md:px-6 py-3 text-white font-semibold rounded mt-3 text-sm md:text-base'
           >
             Ver más
           </Link>

@@ -107,7 +107,7 @@ export default function FAQs() {
             href="https://wa.me/5491112345678"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-black font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
           >
             ¿Tienes otra pregunta?
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

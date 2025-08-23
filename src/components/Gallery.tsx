@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { gallery } from "@/app/constants/constants";
 import ImageModal from "./ImageModal";
 import { motion } from "framer-motion";
@@ -92,11 +90,6 @@ const galleryItems = [
 ];
 
 export default function Gallery() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [Autoplay({ delay: 3000 })]
-  );
-  
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
@@ -116,10 +109,6 @@ export default function Gallery() {
     );
   };
 
-  useEffect(() => {
-    if (!emblaApi) return;
-  }, [emblaApi]);
-
   const openModal = (project: GalleryItem) => {
     setSelectedProjectIndex(galleryItems.findIndex(item => item.id === project.id));
     setModalOpen(true);
@@ -135,106 +124,35 @@ export default function Gallery() {
           </p>
         </div>
         
-        {/* Carousel - Solo visible en mobile */}
-        <div className="lg:hidden overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-4">
-            {galleryItems.map((item) => (
-              <div key={item.id} className="min-w-0 flex-[0_0_85%]">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-lg border border-white/10">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="85vw"
-                    className="object-cover"
-                    priority={false}
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                  <p className="text-xs text-[color:var(--color-muted)]">{item.style}</p>
-                  <span className="inline-block mt-1 px-2 py-1 bg-[color:var(--color-primary)] text-white text-xs rounded-full">
-                    {item.category}
-                  </span>
+        {/* Galería simplificada - 10 imágenes juntas */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          {galleryItems.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="group cursor-pointer"
+              onClick={() => openModal(item)}
+            >
+              <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                
+                {/* Overlay con información */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <h4 className="text-white font-semibold text-sm">{item.title}</h4>
+                  <p className="text-white/80 text-xs">{item.style}</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Galería principal - Solo visible en desktop */}
-        <div className="hidden lg:block">
-          {/* Sección Tatuajes */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Tatuajes
-            </h3>
-            <div className="grid grid-cols-2 xl:grid-cols-3 gap-6">
-              {galleryItems.filter(item => item.category === "Tatuaje").map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="group cursor-pointer"
-                  onClick={() => openModal(item)}
-                >
-                  <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      sizes="(max-width: 1280px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                    
-                    {/* Overlay con información */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                      <h4 className="text-white font-semibold text-lg">{item.title}</h4>
-                      <p className="text-white/80 text-sm">{item.style}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Sección Piercings */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Piercings
-            </h3>
-            <div className="grid grid-cols-2 xl:grid-cols-3 gap-6">
-              {galleryItems.filter(item => item.category === "Piercing").map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="group cursor-pointer"
-                  onClick={() => openModal(item)}
-                >
-                  <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      sizes="(max-width: 1280px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                    
-                    {/* Overlay con información */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                      <h4 className="text-white font-semibold text-lg">{item.title}</h4>
-                      <p className="text-white/80 text-sm">{item.style}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
       
