@@ -51,34 +51,14 @@ export const hero = {
     "Japonés",
     "Geométrico",
     "Acuarela"
-  ],
-  featuredImages: [
-    {
-      id: "featured-1",
-      src: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=1600&auto=format&fit=crop",
-      alt: "Tatuaje fineline delicado"
-    },
-    {
-      id: "featured-2", 
-      src: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop",
-      alt: "Tatuaje blackwork bold"
-    },
-    {
-      id: "featured-3",
-      src: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=1600&auto=format&fit=crop", 
-      alt: "Tatuaje realismo detallado"
-    },
-    {
-      id: "featured-4",
-      src: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop",
-      alt: "Tatuaje minimalista elegante"
-    }
   ]
 };
 
 export const gallery = {
   title: "Galería",
   subtitle: "Selección de proyectos recientes",
+  // Las imágenes se cargan dinámicamente desde la carpeta public/galeria/
+  // Nomenclatura: galeria-1.webp, galeria-2.webp, galeria-3.webp, etc.
 };
 
 export const metadataCompany = {

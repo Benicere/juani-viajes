@@ -1,17 +1,10 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { hero } from "@/app/constants/constants";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
-  const [emblaRef] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [Autoplay({ delay: 3000 })]
-  );
 
   // Carrusel de estilos (marquee)
   useEffect(() => {
@@ -88,36 +81,6 @@ export default function Hero() {
           >
             {hero.secondaryCta.label}
           </a>
-        </motion.div>
-
-        {/* Carrusel de imágenes destacadas */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-12 sm:mt-16 lg:mt-20 max-w-4xl mx-auto px-4"
-        >
-          <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/10">
-            <div ref={emblaRef}>
-              <div className="flex">
-                {hero.featuredImages.map((image) => (
-                  <div key={image.id} className="min-w-0 flex-[0_0_100%]">
-                    <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] relative">
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 60vw"
-                        priority={false}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

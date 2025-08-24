@@ -14,7 +14,7 @@ interface GalleryItem {
 interface ImageModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: GalleryItem | null;
+  item: GalleryItem;
   onPrevious: () => void;
   onNext: () => void;
   hasPrevious: boolean;
@@ -24,7 +24,7 @@ interface ImageModalProps {
 export default function ImageModal({
   isOpen,
   onClose,
-  project,
+  item,
   onPrevious,
   onNext,
   hasPrevious,
@@ -46,8 +46,6 @@ export default function ImageModal({
       document.body.style.overflow = "unset";
     };
   }, [isOpen, onClose]);
-
-  if (!project) return null;
 
   return (
     <AnimatePresence>
@@ -101,8 +99,8 @@ export default function ImageModal({
             {/* Image */}
             <div className="relative aspect-[4/3] sm:aspect-[3/2] lg:aspect-[16/9] w-full h-[70vh] sm:h-[75vh] lg:h-[80vh] rounded-lg overflow-hidden border border-white/20">
               <Image
-                src={project.image}
-                alt={project.title}
+                src={item.image}
+                alt={item.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 95vw, 90vw"
@@ -112,10 +110,10 @@ export default function ImageModal({
 
             {/* Project info */}
             <div className="mt-4 text-center text-white">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-                <span className="px-3 py-1 bg-white/10 rounded-full">{project.style}</span>
-                <span className="px-3 py-1 bg-[color:var(--color-primary)] rounded-full">{project.category}</span>
+                <span className="px-3 py-1 bg-white/10 rounded-full">{item.style}</span>
+                <span className="px-3 py-1 bg-[color:var(--color-primary)] rounded-full">{item.category}</span>
               </div>
             </div>
 

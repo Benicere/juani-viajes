@@ -12,14 +12,23 @@ export default function Footer() {
       <div className="container">
         {/* Logo y navegación */}
         <div className="text-center mb-6">
-          <div className="flex justify-center mb-4">
-            <Image
+          <div className="flex justify-center items-center mb-4">
+                         <Image
+               priority
+               className="w-[53px] h-[53px] md:w-14 md:h-14 lg:w-16 lg:h-16"
+               src="/assets/company/favicon.webp"
+               alt={`${company.name} favicon`}
+               width={128}
+               height={128}
+             />
+            {/* Logo desactivado - se mantiene el archivo logo.webp en public/company/ */}
+            {/* <Image
               src="/company/logo.webp"
               alt={company.name}
               width={140}
               height={50}
               className="h-10 w-auto sm:h-12"
-            />
+            /> */}
           </div>
           
           <nav className="flex justify-center gap-6 text-base text-[color:var(--color-muted)]">

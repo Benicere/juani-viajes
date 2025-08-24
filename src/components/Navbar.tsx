@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { navigation } from "@/app/constants/constants";
+import { navigation, company } from "@/app/constants/constants";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -15,8 +15,21 @@ export default function Navbar() {
       <div className="container">
         <div className="flex items-center justify-between h-16 sm:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2">
             <Image
+              priority
+              className="w-[53px] h-[53px] md:w-14 md:h-14 lg:w-16 lg:h-16"
+              src="/assets/company/favicon.webp"
+              alt={`${company.name} favicon`}
+              width={128}
+              height={128}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+            {/* Logo desactivado - se mantiene el archivo logo.webp en public/company/ */}
+            {/* <Image
               src="/company/logo.webp"
               alt="Logo"
               width={160}
@@ -26,18 +39,7 @@ export default function Navbar() {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
               }}
-            />
-            <Image
-              src="/company/favicon.webp"
-              alt="Favicon"
-              width={24}
-              height={24}
-              className="h-6 w-6 sm:h-8 sm:w-8"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
+            /> */}
           </Link>
 
           {/* Desktop Navigation */}

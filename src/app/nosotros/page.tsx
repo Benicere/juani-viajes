@@ -18,7 +18,7 @@ export default function NosotrosPage() {
               {/* Nuestros Inicios - 50% */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl"
               >
@@ -35,7 +35,7 @@ export default function NosotrosPage() {
               {/* Imagen nosotros-1 - 50% */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10"
               >
@@ -59,7 +59,7 @@ export default function NosotrosPage() {
               {/* Nuestra Misión */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
@@ -86,7 +86,7 @@ export default function NosotrosPage() {
               {/* Nuestros Valores */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-center"
               >
@@ -133,7 +133,7 @@ export default function NosotrosPage() {
               {/* Nuestro Equipo */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-center"
               >
@@ -169,7 +169,7 @@ export default function NosotrosPage() {
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center"
             >

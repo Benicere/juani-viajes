@@ -13,159 +13,174 @@ interface GalleryItem {
   style: string;
 }
 
-// Datos de la galería - 5 tatuajes y 5 piercings
-const galleryItems = [
-  // TATUAJES
+// Datos de la galería - se generan dinámicamente
+const galleryItems: GalleryItem[] = [
+  // Por ahora, usar un enfoque más simple: cargar las imágenes que sabemos que existen
+  // En producción, esto se puede hacer con un script que escanee la carpeta
   {
-    id: "tattoo-1",
-    title: "Tatuaje Fineline",
-    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
-    category: "Tatuaje",
-    style: "Fineline"
+    id: "galeria-1",
+    title: "Galería 1",
+    image: "/galeria/galeria-1.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "tattoo-2",
-    title: "Tatuaje Blackwork",
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop",
-    category: "Tatuaje",
-    style: "Blackwork"
+    id: "galeria-2",
+    title: "Galería 2", 
+    image: "/galeria/galeria-2.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "tattoo-3",
-    title: "Tatuaje Realismo",
-    image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=800&auto=format&fit=crop",
-    category: "Tatuaje",
-    style: "Realismo"
+    id: "galeria-3",
+    title: "Galería 3",
+    image: "/galeria/galeria-3.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "tattoo-4",
-    title: "Tatuaje Minimalista",
-    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
-    category: "Tatuaje",
-    style: "Minimalista"
+    id: "galeria-4",
+    title: "Galería 4",
+    image: "/galeria/galeria-4.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "tattoo-5",
-    title: "Tatuaje Neo Traditional",
-    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
-    category: "Tatuaje",
-    style: "Neo Traditional"
-  },
-  // PIERCINGS
-  {
-    id: "piercing-1",
-    title: "Piercing Industrial",
-    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
-    category: "Piercing",
-    style: "Industrial"
+    id: "galeria-5",
+    title: "Galería 5",
+    image: "/galeria/galeria-5.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "piercing-2",
-    title: "Piercing Helix",
-    image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=800&auto=format&fit=crop",
-    category: "Piercing",
-    style: "Helix"
+    id: "galeria-6",
+    title: "Galería 6",
+    image: "/galeria/galeria-6.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "piercing-3",
-    title: "Piercing Septum",
-    image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
-    category: "Piercing",
-    style: "Septum"
+    id: "galeria-7",
+    title: "Galería 7",
+    image: "/galeria/galeria-7.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
   {
-    id: "piercing-4",
-    title: "Piercing Labret",
-    image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop",
-    category: "Piercing",
-    style: "Labret"
+    id: "galeria-8",
+    title: "Galería 8",
+    image: "/galeria/galeria-8.webp",
+    category: "Galería",
+    style: "Personalizado"
   },
-  {
-    id: "piercing-5",
-    title: "Piercing Ombligo",
-    image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
-    category: "Piercing",
-    style: "Ombligo"
-  }
 ];
 
 export default function Gallery() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  // Usar directamente las imágenes estáticas (más eficiente)
+  const availableImages = galleryItems;
 
   const handleModalClose = () => {
     setModalOpen(false);
   };
 
   const handlePrevious = () => {
-    setSelectedProjectIndex(prev => 
-      prev > 0 ? prev - 1 : galleryItems.length - 1
+    setSelectedProjectIndex((prev) => 
+      prev === 0 ? availableImages.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setSelectedProjectIndex(prev => 
-      prev < galleryItems.length - 1 ? prev + 1 : 0
+    setSelectedProjectIndex((prev) => 
+      prev === availableImages.length - 1 ? 0 : prev + 1
     );
   };
 
-  const openModal = (project: GalleryItem) => {
-    setSelectedProjectIndex(galleryItems.findIndex(item => item.id === project.id));
+  const openModal = (index: number) => {
+    setSelectedProjectIndex(index);
     setModalOpen(true);
   };
 
   return (
     <section id="gallery" className="py-12 sm:py-16">
-      <div className="container space-y-6 sm:space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">{gallery.title}</h2>
-          <p className="text-lg text-[color:var(--color-muted)] max-w-2xl mx-auto">
+      <div className="container">
+        {/* Título y subtítulo */}
+        <div className="text-center mb-8 sm:mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+          >
+            {gallery.title}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg sm:text-xl text-[color:var(--color-muted)] max-w-2xl mx-auto"
+          >
             {gallery.subtitle}
-          </p>
+          </motion.p>
         </div>
-        
-        {/* Galería simplificada - 10 imágenes juntas */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-          {galleryItems.map((item) => (
+
+        {/* Grid de imágenes */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+        >
+          {availableImages.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
               className="group cursor-pointer"
-              onClick={() => openModal(item)}
+              onClick={() => openModal(index)}
             >
-              <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10 group-hover:border-white/30 transition-colors">
+              <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                
-                {/* Overlay con información */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                  <h4 className="text-white font-semibold text-sm">{item.title}</h4>
-                  <p className="text-white/80 text-xs">{item.style}</p>
-                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Mensaje si no hay imágenes */}
+        {availableImages.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-[color:var(--color-muted)] text-lg">
+              No hay imágenes disponibles en la galería.
+            </p>
+            <p className="text-sm text-[color:var(--color-muted)] mt-2">
+              Agrega imágenes en la carpeta public/galeria/ con el formato galeria-1.webp, galeria-2.webp, etc.
+            </p>
+          </div>
+        )}
       </div>
-      
-      {/* Image Modal - Solo visible en desktop */}
-      <ImageModal
-        isOpen={modalOpen}
-        onClose={handleModalClose}
-        project={galleryItems[selectedProjectIndex] || null}
-        onPrevious={handlePrevious}
-        onNext={handleNext}
-        hasPrevious={selectedProjectIndex > 0}
-        hasNext={selectedProjectIndex < galleryItems.length - 1}
-      />
+
+      {/* Modal de imagen */}
+      {modalOpen && (
+        <ImageModal
+          isOpen={modalOpen}
+          onClose={handleModalClose}
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          item={availableImages[selectedProjectIndex]}
+          hasPrevious={selectedProjectIndex > 0}
+          hasNext={selectedProjectIndex < availableImages.length - 1}
+        />
+      )}
     </section>
   );
 }

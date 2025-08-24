@@ -33,11 +33,11 @@ export default function ServiciosPage() {
         {/* Servicios Detallados */}
         <section className="py-20">
           <div className="container">
-            <div className="space-y-16">
+            <div className="space-y-32">
               {/* Servicio 1: Tatuajes - Texto izquierda, imagen derecha */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
               >
@@ -49,18 +49,18 @@ export default function ServiciosPage() {
                     Diseños personalizados en distintos estilos. Nuestros artistas especializados crean obras únicas que reflejan tu personalidad y visión.
                   </p>
                   <ul className="space-y-3">
-                    {services.items[0].features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-[color:var(--color-muted)]">
-                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                        <span className="text-lg">{feature}</span>
-                      </li>
-                    ))}
+                                         {services.items[0].features.map((feature, featureIndex) => (
+                       <li key={featureIndex} className="flex items-center text-[color:var(--color-muted)]">
+                         <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                         <span className="text-lg">{feature}</span>
+                       </li>
+                     ))}
                   </ul>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
                     <Image
-                      src="/servicios/servicio-1.webp"
+                      src="/nosotros/nosotros-1.webp"
                       alt="Servicio de tatuajes personalizados"
                       fill
                       className="object-cover"
@@ -73,14 +73,14 @@ export default function ServiciosPage() {
               {/* Servicio 2: Piercings - Imagen izquierda, texto derecha */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
               >
                 <div className="order-1">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
                     <Image
-                      src="/servicios/servicio-2.webp"
+                      src="/nosotros/nosotros-3.webp"
                       alt="Servicio de piercings profesionales"
                       fill
                       className="object-cover"
@@ -96,48 +96,57 @@ export default function ServiciosPage() {
                     Colocación profesional e higiénica. Utilizamos materiales de primera calidad y técnicas seguras para garantizar tu bienestar.
                   </p>
                   <ul className="space-y-3">
-                    {services.items[1].features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-[color:var(--color-muted)]">
-                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                        <span className="text-lg">{feature}</span>
-                      </li>
-                    ))}
+                                         {services.items[1].features.map((feature, featureIndex) => (
+                       <li key={featureIndex} className="flex items-center text-[color:var(--color-muted)]">
+                         <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                         <span className="text-lg">{feature}</span>
+                       </li>
+                     ))}
                   </ul>
                 </div>
               </motion.div>
 
-              {/* Servicio 3: Cuidados post - Texto izquierda, imagen derecha */}
+              {/* Servicio 3: Cuidados post - Solo texto, sin imagen */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+                className="text-center max-w-4xl mx-auto"
               >
-                <div className="order-2 lg:order-1">
-                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    Cuidados post
-                  </h3>
-                  <p className="text-lg text-[color:var(--color-muted)] mb-6 leading-relaxed">
-                    Asesoramiento y seguimiento de tu tatuaje/piercing. Te acompañamos en todo el proceso de curación para obtener los mejores resultados.
-                  </p>
-                  <ul className="space-y-3">
-                    {services.items[2].features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-[color:var(--color-muted)]">
-                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                        <span className="text-lg">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="order-1 lg:order-2">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
-                    <Image
-                      src="/servicios/servicio-3.webp"
-                      alt="Servicio de cuidados post-procedimiento"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
+                <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+                  Cuidados post
+                </h3>
+                                 <p className="text-lg text-[color:var(--color-muted)] mb-8 leading-relaxed">
+                   Asesoramiento y seguimiento de tu tatuaje/piercing. Te acompañamos en todo el proceso de curación para obtener los mejores resultados.
+                 </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                  <div className="space-y-3">
+                                         <div className="flex items-center text-[color:var(--color-muted)]">
+                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                       <span className="text-lg">Instrucciones detalladas</span>
+                     </div>
+                     <div className="flex items-center text-[color:var(--color-muted)]">
+                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                       <span className="text-lg">Seguimiento personalizado</span>
+                     </div>
+                     <div className="flex items-center text-[color:var(--color-muted)]">
+                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                       <span className="text-lg">Productos recomendados</span>
+                     </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center text-[color:var(--color-muted)]">
+                      <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                      <span className="text-lg">Atención post-procedimiento</span>
+                    </div>
+                    <div className="flex items-center text-[color:var(--color-muted)]">
+                      <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                      <span className="text-lg">Control de curación</span>
+                    </div>
+                    <div className="flex items-center text-[color:var(--color-muted)]">
+                      <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
+                      <span className="text-lg">Soporte continuo</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -150,7 +159,7 @@ export default function ServiciosPage() {
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center"
             >
