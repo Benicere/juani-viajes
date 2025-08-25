@@ -54,7 +54,7 @@ export default function IntroSection() {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <section className='flex justify-center my-8 md:my-14 lg:my-20 mx-4 sm:mx-6 md:mx-8 lg:mx-10'>
+    <section className='flex justify-center my-16 md:my-24 lg:my-32 mx-4 sm:mx-6 md:mx-8 lg:mx-10'>
       <div className='flex flex-col items-center max-w-6xl'>
         <motion.article
           initial={{ opacity: 0, y: 10 }}
