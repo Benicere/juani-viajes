@@ -1,3 +1,5 @@
+"use client";
+
 import { company, navigation } from "@/app/constants/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,27 +15,23 @@ export default function Footer() {
         {/* Logo y navegación */}
         <div className="text-center mb-6">
           <div className="flex justify-center items-center mb-4">
-                         <Image
-               priority
-               className="w-[53px] h-[53px] md:w-14 md:h-14 lg:w-16 lg:h-16"
-               src="/assets/company/favicon.webp"
-               alt={`${company.name} favicon`}
-               width={128}
-               height={128}
-             />
-            {/* Logo desactivado - se mantiene el archivo logo.webp en public/company/ */}
-            {/* <Image
-              src="/company/logo.webp"
-              alt={company.name}
-              width={140}
-              height={50}
+            <Image
+              priority
+              src="/assets/company/logo.webp"
+              alt={`${company.name} logo`}
+              width={160}
+              height={60}
               className="h-10 w-auto sm:h-12"
-            /> */}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
           </div>
           
           <nav className="flex justify-center gap-6 text-base text-[color:var(--color-muted)]">
             {navigation.map((link) => (
-              <Link key={link.id} href={link.url} className="hover:text-white transition-colors">
+              <Link key={link.id} href={link.url} className="hover:text-[color:var(--color-primary)] transition-colors">
                 {link.title}
               </Link>
             ))}
@@ -50,7 +48,7 @@ export default function Footer() {
               className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="WhatsApp"
             >
-              <WhatsappIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
+              <WhatsappIcon className="w-8 h-8 text-[color:var(--color-icon)] hover:text-[color:var(--color-icon-hover)] transition-colors" />
             </a>
           )}
           
@@ -62,7 +60,7 @@ export default function Footer() {
               className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="Instagram"
             >
-              <InstagramIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
+              <InstagramIcon className="w-8 h-8 text-[color:var(--color-icon)] hover:text-[color:var(--color-icon-hover)] transition-colors" />
             </a>
           )}
           
@@ -74,7 +72,7 @@ export default function Footer() {
               className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform"
               aria-label="Facebook"
             >
-              <FacebookIcon className="w-8 h-8 text-[#e5e7eb] hover:text-white transition-colors" />
+              <FacebookIcon className="w-8 h-8 text-[color:var(--color-icon)] hover:text-[color:var(--color-icon-hover)] transition-colors" />
             </a>
           )}
         </div>

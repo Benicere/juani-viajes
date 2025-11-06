@@ -26,9 +26,9 @@ export default function NosotrosPage() {
                   Nuestros Inicios
                 </h2>
                 <p className="text-lg sm:text-xl text-[color:var(--color-muted)] leading-relaxed">
-                  Todo comenzó en 2012, cuando un grupo de apasionados artistas decidimos crear un espacio
-                  donde el arte del tatuaje fuera más que un simple servicio. Queríamos construir un lugar
-                  donde cada cliente se sintiera parte de nuestra familia, donde cada diseño contara una historia única.
+                  Todo comenzó hace más de 10 años, cuando un grupo de apasionados viajeros decidimos crear una agencia
+                  donde cada viaje fuera más que un simple destino. Queríamos construir un lugar
+                  donde cada cliente se sintiera parte de nuestra familia, donde cada experiencia contara una historia única.
                 </p>
               </motion.div>
 
@@ -40,8 +40,8 @@ export default function NosotrosPage() {
                 className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10"
               >
                 <Image
-                  src="/nosotros/nosotros-1.webp"
-                  alt="Estudio de tatuajes - Ambiente profesional"
+                  src="/assets/nosotros/nosotros-1.webp"
+                  alt="Agencia de viajes - Experiencia única"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -68,8 +68,8 @@ export default function NosotrosPage() {
                     Nuestra Misión
                   </h3>
                   <p className="text-lg text-[color:var(--color-muted)] leading-relaxed">
-                    Transformar ideas en arte permanente, creando experiencias únicas que van más allá del tatuaje. 
-                    Nos comprometemos a mantener los más altos estándares de calidad, higiene y profesionalismo, 
+                    Transformar sueños en experiencias inolvidables, creando viajes únicos que van más allá del destino. 
+                    Nos comprometemos a mantener los más altos estándares de calidad, servicio y profesionalismo, 
                     mientras construimos relaciones duraderas con nuestros clientes.
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export default function NosotrosPage() {
                     </div>
                     <h4 className="text-xl font-semibold mb-2">Pasión</h4>
                     <p className="text-[color:var(--color-muted)]">
-                      Cada tatuaje es una obra de arte creada con amor y dedicación
+                      Cada viaje es una experiencia única creada con amor y dedicación
                     </p>
                   </div>
                   <div className="text-center">
@@ -113,7 +113,7 @@ export default function NosotrosPage() {
                     </div>
                     <h4 className="text-xl font-semibold mb-2">Seguridad</h4>
                     <p className="text-[color:var(--color-muted)]">
-                      Higiene y protocolos de seguridad como prioridad absoluta
+                      Asistencia y protocolos de seguridad como prioridad absoluta
                     </p>
                   </div>
                   <div className="text-center">
@@ -141,21 +141,21 @@ export default function NosotrosPage() {
                   Nuestro Equipo
                 </h3>
                 <p className="text-lg text-[color:var(--color-muted)] leading-relaxed max-w-3xl mx-auto mb-8">
-                  Contamos con artistas especializados en diferentes estilos, cada uno con años de experiencia 
-                  y una pasión inquebrantable por el arte del tatuaje. Nuestro equipo trabaja en conjunto para 
+                  Contamos con asesores especializados en diferentes destinos, cada uno con años de experiencia 
+                  y una pasión inquebrantable por los viajes. Nuestro equipo trabaja en conjunto para 
                   ofrecerte la mejor experiencia posible.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
                   <div className="text-center p-6 bg-white/5 rounded-lg border border-white/10">
-                    <h4 className="text-xl font-semibold mb-2">Artistas Senior</h4>
+                    <h4 className="text-xl font-semibold mb-2">Asesores Senior</h4>
                     <p className="text-[color:var(--color-muted)]">
-                      Más de 10 años de experiencia en el mundo del tatuaje
+                      Más de 10 años de experiencia en el mundo de los viajes
                     </p>
                   </div>
                   <div className="text-center p-6 bg-white/5 rounded-lg border border-white/10">
                     <h4 className="text-xl font-semibold mb-2">Especialistas</h4>
                     <p className="text-[color:var(--color-muted)]">
-                      Expertos en diferentes estilos y técnicas
+                      Expertos en diferentes destinos y experiencias
                     </p>
                   </div>
                 </div>
@@ -177,24 +177,24 @@ export default function NosotrosPage() {
                 ¿Listo para ser parte de nuestra historia?
               </h2>
               <p className="text-lg sm:text-xl text-[color:var(--color-muted)] mb-8 max-w-3xl mx-auto">
-                Ven a conocernos, charlemos sobre tu idea y juntos creemos algo único y personalizado. 
-                Cada tatuaje es una nueva página en nuestra historia compartida.
+                Contactanos, charlemos sobre tu destino ideal y juntos creemos algo único y personalizado. 
+                Cada viaje es una nueva página en nuestra historia compartida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contacto"
                   className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
                 >
-                  Agendar consulta
+                  Consultar viaje
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </Link>
                 <Link
                   href="/galeria"
                   className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors"
                 >
-                  Ver nuestros trabajos
+                  Ver nuestros destinos
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

@@ -24,7 +24,7 @@ export default function ServiciosPage() {
                 Nuestros Servicios
               </h1>
               <p className="text-lg sm:text-xl text-[color:var(--color-muted)] max-w-3xl mx-auto">
-                Especialistas en diferentes estilos de tatuajes y piercings profesionales
+                Ofrecemos una amplia gama de servicios para hacer de tu viaje una experiencia inolvidable
               </p>
             </motion.div>
           </div>
@@ -34,7 +34,7 @@ export default function ServiciosPage() {
         <section className="py-20">
           <div className="container">
             <div className="space-y-32">
-              {/* Servicio 1: Tatuajes - Texto izquierda, imagen derecha */}
+              {/* Servicio 1: Paquetes Todo Incluido - Texto izquierda, imagen derecha */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -43,10 +43,10 @@ export default function ServiciosPage() {
               >
                 <div className="order-2 lg:order-1">
                   <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    Tatuajes
+                    Paquetes Todo Incluido
                   </h3>
                   <p className="text-lg text-[color:var(--color-muted)] mb-6 leading-relaxed">
-                    Diseños personalizados en distintos estilos. Nuestros artistas especializados crean obras únicas que reflejan tu personalidad y visión.
+                    Disfrutá de paquetes completos con vuelos, hoteles y excursiones incluidas. Nuestros asesores especializados crean experiencias únicas que reflejan tus preferencias.
                   </p>
                   <ul className="space-y-3">
                                          {services.items[0].features.map((feature, featureIndex) => (
@@ -60,8 +60,8 @@ export default function ServiciosPage() {
                 <div className="order-1 lg:order-2">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
                     <Image
-                      src="/nosotros/nosotros-1.webp"
-                      alt="Servicio de tatuajes personalizados"
+                      src="/assets/nosotros/nosotros-1.webp"
+                      alt="Paquetes todo incluido"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -70,7 +70,7 @@ export default function ServiciosPage() {
                 </div>
               </motion.div>
 
-              {/* Servicio 2: Piercings - Imagen izquierda, texto derecha */}
+              {/* Servicio 2: Destinos Personalizados - Imagen izquierda, texto derecha */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -80,8 +80,8 @@ export default function ServiciosPage() {
                 <div className="order-1">
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
                     <Image
-                      src="/nosotros/nosotros-3.webp"
-                      alt="Servicio de piercings profesionales"
+                      src="/assets/nosotros/nosotros-3.webp"
+                      alt="Destinos personalizados"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -90,10 +90,10 @@ export default function ServiciosPage() {
                 </div>
                 <div className="order-2">
                   <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    Piercings
+                    Destinos Personalizados
                   </h3>
                   <p className="text-lg text-[color:var(--color-muted)] mb-6 leading-relaxed">
-                    Colocación profesional e higiénica. Utilizamos materiales de primera calidad y técnicas seguras para garantizar tu bienestar.
+                    Creamos itinerarios únicos adaptados a tus preferencias y presupuesto. Utilizamos los mejores destinos y experiencias para garantizar tu satisfacción.
                   </p>
                   <ul className="space-y-3">
                                          {services.items[1].features.map((feature, featureIndex) => (
@@ -106,7 +106,7 @@ export default function ServiciosPage() {
                 </div>
               </motion.div>
 
-              {/* Servicio 3: Cuidados post - Solo texto, sin imagen */}
+              {/* Servicio 3: Viajes de Aventura - Solo texto, sin imagen */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -114,38 +114,38 @@ export default function ServiciosPage() {
                 className="text-center max-w-4xl mx-auto"
               >
                 <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
-                  Cuidados post
+                  Viajes de Aventura
                 </h3>
                                  <p className="text-lg text-[color:var(--color-muted)] mb-8 leading-relaxed">
-                   Asesoramiento y seguimiento de tu tatuaje/piercing. Te acompañamos en todo el proceso de curación para obtener los mejores resultados.
+                   Experiencias emocionantes para los más aventureros. Te acompañamos en todo el proceso de planificación para obtener los mejores resultados.
                  </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                   <div className="space-y-3">
                                          <div className="flex items-center text-[color:var(--color-muted)]">
                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                       <span className="text-lg">Instrucciones detalladas</span>
+                       <span className="text-lg">Turismo aventura</span>
                      </div>
                      <div className="flex items-center text-[color:var(--color-muted)]">
                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                       <span className="text-lg">Seguimiento personalizado</span>
+                       <span className="text-lg">Deportes extremos</span>
                      </div>
                      <div className="flex items-center text-[color:var(--color-muted)]">
                        <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                       <span className="text-lg">Productos recomendados</span>
+                       <span className="text-lg">Naturaleza</span>
                      </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center text-[color:var(--color-muted)]">
                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                      <span className="text-lg">Atención post-procedimiento</span>
+                      <span className="text-lg">Guías especializados</span>
                     </div>
                     <div className="flex items-center text-[color:var(--color-muted)]">
                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                      <span className="text-lg">Control de curación</span>
+                      <span className="text-lg">Equipamiento incluido</span>
                     </div>
                     <div className="flex items-center text-[color:var(--color-muted)]">
                       <span className="w-3 h-3 bg-[color:var(--color-primary)] rounded-full mr-4" />
-                      <span className="text-lg">Soporte continuo</span>
+                      <span className="text-lg">Experiencias únicas</span>
                     </div>
                   </div>
                 </div>
@@ -164,11 +164,11 @@ export default function ServiciosPage() {
               className="text-center"
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                ¿Listo para tu próximo tatuaje?
+                ¿Listo para tu próxima aventura?
               </h2>
               <p className="text-lg sm:text-xl text-[color:var(--color-muted)] mb-8 max-w-3xl mx-auto">
-                Nuestros artistas están listos para crear algo único y personalizado para ti.
-                Agenda tu consulta y comencemos a diseñar juntos tu próxima obra de arte.
+                Nuestros asesores están listos para crear algo único y personalizado para ti.
+                Contactanos y comencemos a diseñar juntos tu próxima experiencia inolvidable.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

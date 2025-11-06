@@ -20,59 +20,60 @@ const galleryItems: GalleryItem[] = [
   {
     id: "galeria-1",
     title: "Galería 1",
-    image: "/galeria/galeria-1.webp",
+    image: "/assets/galeria/galeria-1.webp",
     category: "Galería",
     style: "Personalizado"
   },
-  {
-    id: "galeria-2",
-    title: "Galería 2", 
-    image: "/galeria/galeria-2.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-3",
-    title: "Galería 3",
-    image: "/galeria/galeria-3.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-4",
-    title: "Galería 4",
-    image: "/galeria/galeria-4.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-5",
-    title: "Galería 5",
-    image: "/galeria/galeria-5.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-6",
-    title: "Galería 6",
-    image: "/galeria/galeria-6.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-7",
-    title: "Galería 7",
-    image: "/galeria/galeria-7.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
-  {
-    id: "galeria-8",
-    title: "Galería 8",
-    image: "/galeria/galeria-8.webp",
-    category: "Galería",
-    style: "Personalizado"
-  },
+  // Comentamos las otras imágenes hasta que las agregues
+  // {
+  //   id: "galeria-2",
+  //   title: "Galería 2", 
+  //   image: "/assets/galeria/galeria-2.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-3",
+  //   title: "Galería 3",
+  //   image: "/assets/galeria/galeria-3.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-4",
+  //   title: "Galería 4",
+  //   image: "/assets/galeria/galeria-4.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-5",
+  //   title: "Galería 5",
+  //   image: "/assets/galeria/galeria-5.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-6",
+  //   title: "Galería 6",
+  //   image: "/assets/galeria/galeria-6.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-7",
+  //   title: "Galería 7",
+  //   image: "/assets/galeria/galeria-7.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
+  // {
+  //   id: "galeria-8",
+  //   title: "Galería 8",
+  //   image: "/assets/galeria/galeria-8.webp",
+  //   category: "Galería",
+  //   style: "Personalizado"
+  // },
 ];
 
 export default function Gallery() {
@@ -80,6 +81,10 @@ export default function Gallery() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   // Usar directamente las imágenes estáticas (más eficiente)
   const availableImages = galleryItems;
+  
+  // Debug: verificar que las imágenes se estén cargando
+  console.log('Gallery - availableImages:', availableImages);
+  console.log('Gallery - galleryItems:', galleryItems);
 
   const handleModalClose = () => {
     setModalOpen(false);

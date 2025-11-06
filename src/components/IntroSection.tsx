@@ -10,33 +10,33 @@ import Link from 'next/link';
 const introImages = [
   {
     id: 1,
-    src: "/nosotros/nosotros-1.webp",
-    alt: "Estudio de tatuajes - Ambiente profesional"
+    src: "/assets/nosotros/nosotros-1.webp",
+    alt: "Destino de viaje - Experiencia única"
   },
   {
     id: 2,
-    src: "/nosotros/nosotros-2.webp",
-    alt: "Artista trabajando en tatuaje"
+    src: "/assets/nosotros/nosotros-2.webp",
+    alt: "Viajeros disfrutando de su aventura"
   },
   {
     id: 3,
-    src: "/nosotros/nosotros-3.webp",
-    alt: "Equipamiento profesional"
+    src: "/assets/nosotros/nosotros-3.webp",
+    alt: "Destino paradisíaco"
   },
   {
     id: 4,
-    src: "/nosotros/nosotros-4.webp",
-    alt: "Sala de espera"
+    src: "/assets/nosotros/nosotros-4.webp",
+    alt: "Paisaje increíble"
   },
   {
     id: 5,
-    src: "/nosotros/nosotros-5.webp",
-    alt: "Materiales de trabajo"
+    src: "/assets/nosotros/nosotros-5.webp",
+    alt: "Experiencia de viaje"
   },
   {
     id: 6,
-    src: "/nosotros/nosotros-6.webp",
-    alt: "Estudio completo"
+    src: "/assets/nosotros/nosotros-6.webp",
+    alt: "Aventura y descubrimiento"
   }
 ];
 
@@ -69,11 +69,11 @@ export default function IntroSection() {
           viewport={{ margin: '0px 0px -300px 0px', once: true }}
           className='flex flex-col items-center'
         >
-          <h4 className='text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-center'>
+          <h4 className='text-2xl sm:text-3xl lg:text-4xl font-semibold text-[color:var(--color-foreground)] text-center'>
             Conocé más de <span className='text-[color:var(--color-primary)]'>Nosotros</span>
           </h4>
           <p className='w-full max-w-[380px] sm:max-w-max sm:w-[480px] lg:w-[500px] xl:w-[620px] text-center text-[color:var(--color-muted)] text-sm sm:text-base lg:text-lg mt-2 sm:mt-3'>
-            En nuestro estudio, la experiencia y dedicación nos motivan a brindarte un ambiente único y profesional.
+            Con años de experiencia, nos especializamos en crear viajes únicos y personalizados que superan tus expectativas.
           </p>
           <Link
             href='/nosotros'

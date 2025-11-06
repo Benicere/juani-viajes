@@ -21,14 +21,14 @@ export default function Contact() {
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-lg sm:text-xl font-semibold text-[color:var(--color-primary)]">Ubicación</h3>
               <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
-                <p className="text-white">{company.adress}</p>
-                <p className="text-white">{company.city}</p>
-                <p className="text-white">Tel: {company.telephone}</p>
-                <p className="text-white">Email: {company.email}</p>
+                <p className="text-[color:var(--color-foreground)]">{company.adress}</p>
+                <p className="text-[color:var(--color-foreground)]">{company.city}</p>
+                <p className="text-[color:var(--color-foreground)]">Tel: {company.telephone}</p>
+                <p className="text-[color:var(--color-foreground)]">Email: {company.email}</p>
               </div>
             </div>
             
-            <div className="aspect-video rounded-lg overflow-hidden border border-white/10">
+            <div className="aspect-video rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20">
               <iframe
                 src={company.googlemaps}
                 width="100%"
@@ -50,8 +50,8 @@ export default function Contact() {
               <div className="space-y-1 sm:space-y-2">
                 {company.openDays.map((day, index) => (
                   <div key={index} className="flex justify-between text-sm sm:text-base">
-                    <span className="text-white font-medium">{day.day}</span>
-                    <span className="text-white">{day.hours.join(", ")}</span>
+                    <span className="text-[color:var(--color-foreground)] font-medium">{day.day}</span>
+                    <span className="text-[color:var(--color-foreground)]">{day.hours.join(", ")}</span>
                   </div>
                 ))}
               </div>
@@ -66,9 +66,9 @@ export default function Contact() {
                     href={`https://instagram.com/${company.instagram}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-[color:var(--color-muted)]/30 hover:bg-[color:var(--color-primary)]/10 transition-colors text-sm sm:text-base"
                   >
-                    <InstagramIcon className="w-5 h-5 text-[#e5e7eb]" />
+                    <InstagramIcon className="w-5 h-5 text-[color:var(--color-icon)]" />
                     Instagram
                   </a>
                 )}
@@ -77,9 +77,9 @@ export default function Contact() {
                     href={`https://facebook.com/${company.facebook}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-[color:var(--color-muted)]/30 hover:bg-[color:var(--color-primary)]/10 transition-colors text-sm sm:text-base"
                   >
-                    <FacebookIcon className="w-5 h-5 text-[#e5e7eb]" />
+                    <FacebookIcon className="w-5 h-5 text-[color:var(--color-icon)]" />
                     Facebook
                   </a>
                 )}
@@ -88,9 +88,9 @@ export default function Contact() {
                     href={`https://wa.me/${company.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-white/20 hover:bg-white/5 transition-colors text-sm sm:text-base"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-md border border-[color:var(--color-muted)]/30 hover:bg-[color:var(--color-primary)]/10 transition-colors text-sm sm:text-base"
                   >
-                    <WhatsappIcon className="w-5 h-5 text-[#e5e7eb]" />
+                    <WhatsappIcon className="w-5 h-5 text-[color:var(--color-icon)]" />
                     WhatsApp
                   </a>
                 )}

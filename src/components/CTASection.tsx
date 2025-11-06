@@ -16,12 +16,12 @@ export default function CTASection() {
             className="text-center lg:text-left"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              ¿Listo para tu próximo tatuaje?
+              ¿Listo para tu próxima aventura?
             </h2>
             
             <p className="text-lg sm:text-xl text-[color:var(--color-muted)] mb-8 leading-relaxed">
-              Nuestros artistas están listos para crear algo único y personalizado para ti. 
-              Agenda tu consulta y comencemos a diseñar juntos tu próxima obra de arte.
+              Nuestros asesores están listos para crear el viaje perfecto para ti. 
+              Contactanos y diseñamos juntos tu próxima experiencia inolvidable.
             </p>
 
             <div className="space-y-4">
@@ -32,8 +32,8 @@ export default function CTASection() {
                   </svg>
                 </div>
                 <div className="text-center lg:text-left">
-                  <h4 className="font-semibold text-white">Consulta sobre tu tatuaje</h4>
-                  <p className="text-sm text-[color:var(--color-muted)]">Hablamos de tu idea y la hacemos realidad</p>
+                  <h4 className="font-semibold text-[color:var(--color-foreground)]">Consulta sobre tu viaje</h4>
+                  <p className="text-sm text-[color:var(--color-muted)]">Hablamos de tu destino ideal y lo hacemos realidad</p>
                 </div>
               </div>
 
@@ -44,20 +44,20 @@ export default function CTASection() {
                   </svg>
                 </div>
                 <div className="text-center lg:text-left">
-                  <h4 className="font-semibold text-white">Diseños 100% únicos</h4>
-                  <p className="text-sm text-[color:var(--color-muted)]">Cada tatuaje pensado solo para vos</p>
+                  <h4 className="font-semibold text-[color:var(--color-foreground)]">Viajes 100% personalizados</h4>
+                  <p className="text-sm text-[color:var(--color-muted)]">Cada itinerario pensado solo para vos</p>
                 </div>
               </div>
 
               <div className="flex flex-col items-center space-y-4 lg:flex-row lg:items-center lg:justify-start lg:space-y-0 lg:space-x-4">
                 <div className="w-12 h-12 bg-[color:var(--color-primary)] rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
                 <div className="text-center lg:text-left">
-                  <h4 className="font-semibold text-white">Higiene garantizada</h4>
-                  <p className="text-sm text-[color:var(--color-muted)]">Cumplimos los más altos estándares</p>
+                  <h4 className="font-semibold text-[color:var(--color-foreground)]">Seguridad garantizada</h4>
+                  <p className="text-sm text-[color:var(--color-muted)]">Asistencia 24/7 durante tu viaje</p>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function CTASection() {
               
               <a
                 href="/galeria"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[color:var(--color-primary)] text-[color:var(--color-primary)] font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/10 transition-colors"
               >
                 Ver galería
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,8 +97,8 @@ export default function CTASection() {
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/nosotros/nosotros-2.webp"
-                alt="Estudio de tatuajes"
+                src="/assets/nosotros/nosotros-2.webp"
+                alt="Experiencia de viaje"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -107,8 +107,8 @@ export default function CTASection() {
               
               {/* Overlay con información */}
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Estudio Profesional</h3>
-                <p className="text-sm opacity-90">Ambiente seguro y profesional para tu tatuaje</p>
+                <h3 className="text-xl font-semibold mb-2">Experiencias Únicas</h3>
+                <p className="text-sm opacity-90">Destinos increíbles diseñados para crear recuerdos inolvidables</p>
               </div>
             </div>
           </motion.div>

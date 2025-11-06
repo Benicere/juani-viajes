@@ -1,27 +1,27 @@
 export const services = {
   title: "Nuestros Servicios",
-  subtitle: "Especialistas en diferentes estilos de tatuajes y piercings profesionales",
+  subtitle: "Ofrecemos una amplia gama de servicios para hacer de tu viaje una experiencia inolvidable",
   items: [
     {
-      id: "tatuajes",
-      title: "Tatuajes",
-      description: "Diseños personalizados en distintos estilos.",
-      image: "https://images.unsplash.com/photo-1604027974421-805c6c99febf?q=80&w=800&auto=format&fit=crop",
-      features: ["Fineline", "Blackwork", "Realismo", "Neo Traditional", "Minimalista"]
+      id: "paquetes",
+      title: "Paquetes Todo Incluido",
+      description: "Disfrutá de paquetes completos con vuelos, hoteles y excursiones incluidas.",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop",
+      features: ["Vuelos incluidos", "Hoteles seleccionados", "Excursiones organizadas", "Asistencia 24/7"]
     },
     {
-      id: "piercings",
-      title: "Piercings",
-      description: "Colocación profesional e higiénica.",
-      image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=800&auto=format&fit=crop",
-      features: ["Máxima higiene", "Materiales seguros", "Diseños únicos", "Profesionales certificados"]
+      id: "destinos",
+      title: "Destinos Personalizados",
+      description: "Creamos itinerarios únicos adaptados a tus preferencias y presupuesto.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+      features: ["Itinerarios personalizados", "Asesoramiento experto", "Mejores precios", "Experiencias únicas"]
     },
     {
-      id: "cuidados",
-      title: "Cuidados post",
-      description: "Asesoramiento y seguimiento de tu tatuaje/piercing.",
-      image: "https://images.unsplash.com/photo-1548588689-9d26f0dd3aa1?q=80&w=800&auto=format&fit=crop",
-      features: ["Instrucciones detalladas", "Seguimiento personalizado", "Productos recomendados", "Atención post-procedimiento"]
+      id: "aventura",
+      title: "Viajes de Aventura",
+      description: "Experiencias emocionantes para los más aventureros.",
+      image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop",
+      features: ["Turismo aventura", "Deportes extremos", "Naturaleza", "Guías especializados"]
     }
   ]
 };

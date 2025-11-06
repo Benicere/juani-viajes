@@ -1,45 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { navigation, company } from "@/app/constants/constants";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop || 0;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    // Verificar posición inicial al montar
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-white/10">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-[color:var(--color-background)]/95 backdrop-blur-md border-b border-[color:var(--color-muted)]/20 shadow-md"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="container">
         <div className="flex items-center justify-between h-16 sm:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              priority
-              className="w-[53px] h-[53px] md:w-14 md:h-14 lg:w-16 lg:h-16"
-              src="/assets/company/favicon.webp"
-              alt={`${company.name} favicon`}
-              width={128}
-              height={128}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-            {/* Logo desactivado - se mantiene el archivo logo.webp en public/company/ */}
-            {/* <Image
-              src="/company/logo.webp"
-              alt="Logo"
+              src="/assets/company/logo.webp"
+              alt={`${company.name} logo`}
               width={160}
               height={60}
               className="h-10 w-auto sm:h-12 lg:h-14"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            /> */}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +54,13 @@ export default function Navbar() {
                   key={item.id}
                   href={item.url}
                   className={`relative text-base sm:text-lg font-medium transition-colors ${
-                    isActive ? 'text-white' : 'text-[color:var(--color-muted)] hover:text-white'
+                    isActive
+                      ? isScrolled
+                        ? "text-[color:var(--color-primary)]"
+                        : "text-white"
+                      : isScrolled
+                      ? "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]"
+                      : "text-white/90 hover:text-white"
                   }`}
                 >
                   {item.title}
@@ -67,7 +76,11 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 text-white hover:text-[color:var(--color-primary)] transition-colors"
+            className={`lg:hidden p-2 transition-colors ${
+              isScrolled
+                ? "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]"
+                : "text-white hover:text-[color:var(--color-primary)]"
+            }`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -77,7 +90,9 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileOpen && (
-          <div className="lg:hidden py-4 border-t border-white/10">
+          <div className={`lg:hidden py-4 border-t ${
+            isScrolled ? 'border-[color:var(--color-muted)]/20' : 'border-white/10'
+          }`}>
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => {
                 const isActive = pathname === item.url;
@@ -87,7 +102,13 @@ export default function Navbar() {
                     href={item.url}
                     onClick={() => setIsMobileOpen(false)}
                     className={`relative px-4 py-2 text-base font-medium transition-colors ${
-                      isActive ? 'text-white bg-white/10' : 'text-[color:var(--color-muted)] hover:text-white hover:bg-white/5'
+                      isActive 
+                        ? isScrolled 
+                          ? 'text-[color:var(--color-primary)] bg-[color:var(--color-primary)]/10' 
+                          : 'text-white bg-white/10'
+                        : isScrolled
+                          ? 'text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/5'
+                          : 'text-white/90 hover:text-white hover:bg-white/5'
                     } rounded-lg`}
                   >
                     {item.title}

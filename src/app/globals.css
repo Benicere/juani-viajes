@@ -1,14 +1,70 @@
 @import "tailwindcss";
 
+/**
+ * ============================================================================
+ * PALETA DE COLORES
+ * ============================================================================
+ * 
+ * Este archivo contiene TODAS las definiciones de colores de la aplicación.
+ * Para cambiar cualquier color, edita SOLO este archivo.
+ * 
+ * Cómo usar los colores:
+ * - En componentes: text-[color:var(--color-primary)]
+ * - En clases: bg-[color:var(--color-primary)]
+ * - En estilos inline: style={{ color: 'var(--color-primary)' }}
+ * 
+ * ============================================================================
+ */
+
 @theme inline {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-primary: #e11d48;
-  --color-muted: #e5e7eb;
+  /* ========================================================================
+   * COLORES DE FONDO
+   * ======================================================================== */
+  --color-background: #f5f1e6;      /* Fondo principal (crema suave) */
+  --color-background-secondary: #F5F4F1;  /* Fondo secundario (crema más oscuro) */
+  
+  /* ========================================================================
+   * COLORES DE TEXTO
+   * ======================================================================== */
+  --color-foreground: #1a1a1a;      /* Texto principal (negro suave) */
+  --color-muted: #4a4a4a;            /* Texto secundario (gris medio) */
+  
+  /* ========================================================================
+   * COLORES DE ICONOS SVG
+   * Los iconos SVG usan 'currentColor' y heredan el color del texto del elemento.
+   * Para cambiar el color de un icono, usa clases de texto con estas variables.
+   * ======================================================================== */
+  --color-icon: #011a66;               /* Color normal de los iconos (azul primario) */
+  --color-icon-hover: #2d4daa;       /* Color de los iconos al hacer hover (azul claro) */
+  --color-icon-muted: #6b7280;       /* Color de iconos secundarios/deshabilitados */
+  
+  /* ========================================================================
+   * COLOR PRIMARIO
+   * Color del escudo de la empresa: #002288
+   * ======================================================================== */
+  --color-primary: #011a66;           /* Normal */
+  --color-primary-dark: #001655;       /* Oscuro (20% más oscuro) */
+  --color-primary-light: #2d4daa;      /* Claro (20% más claro) */
+  
+  /* ========================================================================
+   * COLOR SECUNDARIO
+   * Naranja/Arena inspirado en PANGEA (complementa el azul)
+   * ======================================================================== */
+  --color-secondary: #ff8c42;         /* Normal */
+  --color-secondary-dark: #cc6f35;     /* Oscuro (20% más oscuro) */
+  --color-secondary-light: #ffa366;     /* Claro (20% más claro) */
+  
+  /* ========================================================================
+   * COLORES DE ESTADO
+   * ======================================================================== */
   --color-accent: #3b82f6;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+  
+  /* ========================================================================
+   * FUENTE
+   * ======================================================================== */
   --font-sans: var(--font-poppins);
 }
 

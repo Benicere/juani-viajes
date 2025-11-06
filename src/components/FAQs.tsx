@@ -5,28 +5,28 @@ import { useState } from "react";
 const faqs = [
   {
     id: 1,
-    question: "¿Cuánto cuesta un tatuaje?",
-    answer: "El precio varía según el tamaño, complejidad y ubicación. Te damos un presupuesto personalizado en la consulta gratuita."
+    question: "¿Cómo funciona el proceso de reserva?",
+    answer: "Contactanos por WhatsApp o email, contanos tu destino preferido y fechas. Te armamos un presupuesto personalizado sin compromiso."
   },
   {
     id: 2,
-    question: "¿Duele mucho?",
-    answer: "Cada persona tiene una tolerancia diferente al dolor. Las zonas más sensibles son costillas y pies, pero es totalmente soportable."
+    question: "¿Qué incluyen los paquetes todo incluido?",
+    answer: "Nuestros paquetes incluyen vuelos, alojamiento, traslados y algunas excursiones. Te enviamos el detalle completo antes de reservar."
   },
   {
     id: 3,
-    question: "¿Cuánto tiempo tarda en curarse?",
-    answer: "La curación completa toma entre 2-4 semanas. Te damos instrucciones detalladas de cuidados post-tatuaje."
+    question: "¿Puedo personalizar mi viaje?",
+    answer: "¡Por supuesto! Trabajamos contigo para crear un itinerario único que se adapte a tus preferencias, presupuesto y tiempo disponible."
   },
   {
     id: 4,
-    question: "¿Puedo elegir mi propio diseño?",
-    answer: "¡Por supuesto! Trabajamos juntos para crear un diseño único y personalizado que refleje tu estilo y personalidad."
+    question: "¿Ofrecen asistencia durante el viaje?",
+    answer: "Sí, brindamos asistencia 24/7 durante tu viaje. Estamos disponibles para resolver cualquier inconveniente o duda que tengas."
   },
   {
     id: 5,
-    question: "¿Qué tan seguros son los materiales?",
-    answer: "Usamos solo materiales esterilizados y de primera calidad. Cumplimos todos los estándares de higiene y seguridad."
+    question: "¿Qué métodos de pago aceptan?",
+    answer: "Aceptamos transferencias bancarias, tarjetas de crédito y débito. También ofrecemos planes de pago en cuotas para que puedas financiar tu viaje."
   }
 ];
 
@@ -50,7 +50,7 @@ export default function FAQs() {
             Preguntas Frecuentes
           </h2>
           <p className="text-lg sm:text-xl text-[color:var(--color-muted)] max-w-3xl mx-auto">
-            Resolvemos las dudas más comunes sobre tatuajes y piercings
+            Resolvemos las dudas más comunes sobre nuestros servicios de viajes
           </p>
         </motion.div>
 
@@ -61,13 +61,13 @@ export default function FAQs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden"
+              className="bg-[color:var(--color-background-secondary)] backdrop-blur-sm rounded-xl overflow-hidden border border-[color:var(--color-muted)]/10"
             >
               <button
                 onClick={() => toggleFaq(faq.id)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-colors"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[color:var(--color-primary)]/10 transition-colors"
               >
-                <span className="font-semibold text-white text-lg">{faq.question}</span>
+                <span className="font-semibold text-[color:var(--color-foreground)] text-lg">{faq.question}</span>
                 <svg
                   className={`w-6 h-6 text-[color:var(--color-primary)] transition-transform duration-300 ${
                     openFaq === faq.id ? 'rotate-180' : ''
