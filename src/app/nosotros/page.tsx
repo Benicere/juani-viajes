@@ -279,7 +279,7 @@ export default function NosotrosPage() {
                   className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
                 >
                   <Image
-                    src="/assets/nosotros/nosotros.webp"
+                    src="/assets/nosotros/nosotros-1.webp"
                     alt="Equipo De la Paz tur - Nuestros Especialistas"
                     fill
                     className="object-cover"
