@@ -1,12 +1,78 @@
 "use client";
-import { motion } from "framer-motion";
+import type React from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/data/services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function ProgramasPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const panStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handleImageClick = (index: number) => {
+    // Guardar el índice para mapear a la imagen del PDF (programa 1 = imagen 0003, programa 2 = imagen 0004, etc.)
+    setSelectedImageIndex(index);
+    setIsModalOpen(true);
+    setZoom(1); // Resetear zoom al abrir
+    setPan({ x: 0, y: 0 }); // Resetear pan al abrir
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedImageIndex(null);
+    setZoom(1); // Resetear zoom al cerrar
+    setPan({ x: 0, y: 0 });
+    setIsPanning(false);
+  };
+
+  // Manejar zoom con la rueda del mouse
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleWheel = (e: Event) => {
+      const wheelEvent = e as WheelEvent;
+      const imageContainer = document.querySelector('[data-image-container]');
+      if (imageContainer && imageContainer.contains(wheelEvent.target as Node)) {
+        wheelEvent.preventDefault();
+        const delta = wheelEvent.deltaY > 0 ? -0.1 : 0.1;
+        setZoom((prevZoom) => {
+          const newZoom = Math.max(0.5, Math.min(3, prevZoom + delta));
+          return newZoom;
+        });
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [isModalOpen]);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsPanning(true);
+    panStartRef.current = {
+      x: e.clientX - pan.x,
+      y: e.clientY - pan.y,
+    };
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isPanning || !panStartRef.current) return;
+    e.preventDefault();
+    const newX = e.clientX - panStartRef.current.x;
+    const newY = e.clientY - panStartRef.current.y;
+    setPan({ x: newX, y: newY });
+  };
+
+  const handleMouseUp = () => {
+    setIsPanning(false);
+  };
+
   return (
     <>
       <Navbar />
@@ -20,7 +86,7 @@ export default function ProgramasPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[color:var(--color-foreground)]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-10 text-[color:var(--color-foreground)]">
                 Nuestros Programas
               </h1>
               <p className="text-lg sm:text-xl text-[color:var(--color-muted)] max-w-3xl mx-auto">
@@ -67,9 +133,10 @@ export default function ProgramasPage() {
                     key={num}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`relative aspect-[3/4] rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20 hover:border-[color:var(--color-primary)]/40 transition-all duration-300 hover:shadow-lg ${colClasses}`}
+                    viewport={{ once: true, margin: "200px" }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className={`relative aspect-[3/4] rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20 hover:border-[color:var(--color-primary)]/40 transition-all duration-300 hover:shadow-lg cursor-pointer ${colClasses}`}
+                    onClick={() => handleImageClick(index)}
                   >
                     <Image
                       src={`/assets/programas/programa-${num}.webp`}
@@ -132,6 +199,65 @@ export default function ProgramasPage() {
         </section>
       </main>
       <Footer />
+      
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-sm pt-32"
+            onClick={handleCloseModal}
+          >
+            {/* Modal content */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-4xl w-full max-h-[75vh] mx-4 mb-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Botón cerrar */}
+              <button
+                onClick={handleCloseModal}
+                className="absolute -top-4 -right-4 z-10 w-10 h-10 bg-white/10 backdrop-blur border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                aria-label="Cerrar"
+              >
+                ✕
+              </button>
+
+              {/* Imagen */}
+              <div className="bg-white rounded-lg overflow-auto shadow-2xl" style={{ maxHeight: "85vh" }}>
+                <div
+                  data-image-container
+                  className="relative w-full h-[85vh] flex items-center justify-center cursor-grab active:cursor-grabbing"
+                  style={{
+                    transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+                    transformOrigin: "center",
+                    transition: isPanning ? "none" : "transform 0.1s ease-out",
+                  }}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                >
+                  <Image
+                    src={`/assets/programas-imagenes/Manual DLP español_pages-to-jpg-${(selectedImageIndex ?? 0) + 1}-1.webp`}
+                    alt={`Programa ${(selectedImageIndex ?? 0) + 1}`}
+                    width={1200}
+                    height={1600}
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                    quality={95}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
