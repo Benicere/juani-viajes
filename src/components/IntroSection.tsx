@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const collageImages = [
   {
@@ -27,6 +28,18 @@ const collageImages = [
 ];
 
 export default function IntroSection() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <section className='py-16 md:py-24 lg:py-32 bg-[color:var(--color-background)]'>
       <div className='container'>
@@ -69,18 +82,29 @@ export default function IntroSection() {
               },
             }}
             viewport={{ margin: '0px 0px -100px 0px', once: true }}
-            className='relative w-full h-[500px] lg:h-[600px]'
+            className='relative w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] flex items-center justify-center'
           >
             {collageImages.map((image, index) => {
-              // Posiciones distribuidas para efecto desparramado - más separadas
-              const positions = [
-                { x: '10%', y: '5%', rotation: -12 },      // Arriba izquierda
-                { x: '60%', y: '25%', rotation: 15 },      // Centro derecha
-                { x: '5%', y: '65%', rotation: -18 },      // Abajo izquierda
-                { x: '70%', y: '-5%', rotation: 8 },       // Arriba derecha - más a la derecha y arriba
+              // Posiciones para mobile (más compactas y centradas)
+              const positionsMobile = [
+                { x: '5%', y: '10%', rotation: -10 },
+                { x: '50%', y: '20%', rotation: 12 },
+                { x: '20%', y: '48%', rotation: -15 },  // Pingüinos - más al centro y arriba
+                { x: '45%', y: '5%', rotation: 8 },
               ];
               
-              const { x, y, rotation } = positions[index];
+              // Posiciones para desktop (más distribuidas)
+              const positionsDesktop = [
+                { x: '10%', y: '5%', rotation: -12 },
+                { x: '60%', y: '25%', rotation: 15 },
+                { x: '20%', y: '55%', rotation: -18 },  // Pingüinos - más al centro y arriba
+                { x: '70%', y: '-5%', rotation: 8 },
+              ];
+              
+              // Seleccionar posiciones según el tamaño de pantalla
+              const { x, y, rotation } = isDesktop 
+                ? positionsDesktop[index] 
+                : positionsMobile[index];
               const zIndex = collageImages.length - index;
 
               return (
@@ -104,7 +128,7 @@ export default function IntroSection() {
                     rotate: 0,
                     transition: { duration: 0.3 }
                   }}
-                  className='absolute w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px]'
+                  className='absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px]'
                   style={{
                     left: x,
                     top: y,
