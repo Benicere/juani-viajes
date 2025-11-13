@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { hero } from "@/app/constants/constants";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
@@ -16,18 +17,20 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-16 pb-20 min-h-screen flex items-center overflow-hidden">
-      {/* Imagen de fondo difuminada */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative -mt-16 sm:-mt-24 pb-20 min-h-screen flex items-center overflow-hidden">
+      {/* Imagen de fondo difuminada - solo en la sección Hero */}
+      <div className="absolute -top-16 sm:-top-24 left-0 right-0 bottom-0 -z-10">
         <div className="absolute inset-0 bg-black/40" />
-        <img
+        <Image
           src={hero.featuredImage.src}
           alt={hero.featuredImage.alt}
-          className="w-full h-full object-cover opacity-60 blur-[2px]"
+          fill
+          priority
+          className="object-cover opacity-60 blur-[2px]"
         />
       </div>
       
-      <div className="container relative z-10">
+      <div className="container relative z-10 pt-20 sm:pt-24">
         {/* Hero principal */}
         <div className="text-center space-y-6 sm:space-y-8">
           <motion.h1
