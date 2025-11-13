@@ -10,7 +10,7 @@ export default function NosotrosPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-[color:var(--color-background)]">
         {/* Layout 50/50: Nuestros Inicios + Imagen */}
         <section className="py-20">
           <div className="container">
@@ -37,7 +37,7 @@ export default function NosotrosPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10"
+                className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20"
               >
                 <Image
                   src="/assets/nosotros/nosotros-1.webp"
@@ -146,14 +146,14 @@ export default function NosotrosPage() {
                   ofrecerte la mejor experiencia posible.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                  <div className="text-center p-6 bg-white/5 rounded-lg border border-white/10">
-                    <h4 className="text-xl font-semibold mb-2">Asesores Senior</h4>
+                  <div className="text-center p-6 bg-[color:var(--color-background-secondary)] rounded-lg border border-[color:var(--color-muted)]/20">
+                    <h4 className="text-xl font-semibold mb-2 text-[color:var(--color-foreground)]">Asesores Senior</h4>
                     <p className="text-[color:var(--color-muted)]">
                       Más de 10 años de experiencia en el mundo de los viajes
                     </p>
                   </div>
-                  <div className="text-center p-6 bg-white/5 rounded-lg border border-white/10">
-                    <h4 className="text-xl font-semibold mb-2">Especialistas</h4>
+                  <div className="text-center p-6 bg-[color:var(--color-background-secondary)] rounded-lg border border-[color:var(--color-muted)]/20">
+                    <h4 className="text-xl font-semibold mb-2 text-[color:var(--color-foreground)]">Especialistas</h4>
                     <p className="text-[color:var(--color-muted)]">
                       Expertos en diferentes destinos y experiencias
                     </p>
@@ -165,7 +165,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-[color:var(--color-primary)]/20 to-[color:var(--color-primary)]/10">
+        <section className="py-20 bg-[color:var(--color-background)]">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -181,18 +181,20 @@ export default function NosotrosPage() {
                 Cada viaje es una nueva página en nuestra historia compartida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contacto"
+                <a
+                  href="https://delapazturonline.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
                 >
-                  Consultar viaje
+                  Reserva tu viaje
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </Link>
+                </a>
                 <Link
                   href="/galeria"
-                  className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors"
+                  className="inline-flex items-center px-8 py-4 border-2 border-[color:var(--color-primary)] text-[color:var(--color-primary)] font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/10 transition-colors"
                 >
                   Ver nuestros destinos
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

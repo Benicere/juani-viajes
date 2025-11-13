@@ -68,6 +68,18 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <a
+              href="https://delapazturonline.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+                scrolled
+                  ? "bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--color-primary)]/90"
+                  : "bg-white text-[color:var(--color-primary)] hover:bg-white/90 drop-shadow-lg"
+              }`}
+            >
+              Reserva tu viaje
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -127,6 +139,19 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <a
+                href="https://delapazturonline.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileOpen(false)}
+                className={`px-4 py-2 text-center rounded-lg font-semibold transition-colors ${
+                  scrolled
+                    ? "bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--color-primary)]/90"
+                    : "bg-white text-[color:var(--color-primary)] hover:bg-white/90"
+                }`}
+              >
+                Reserva tu viaje
+              </a>
             </div>
           </div>
         )}

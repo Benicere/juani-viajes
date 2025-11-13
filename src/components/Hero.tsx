@@ -81,7 +81,9 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
         >
           <a 
-            href={hero.primaryCta.href} 
+            href="https://delapazturonline.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors text-center"
           >
             {hero.primaryCta.label}

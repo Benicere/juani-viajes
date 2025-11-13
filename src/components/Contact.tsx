@@ -9,9 +9,9 @@ export default function Contact() {
     <section id="contact" className="py-12 sm:py-16">
       <div className="container space-y-8 sm:space-y-12">
         <div className="text-center space-y-3 sm:space-y-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[color:var(--color-primary)]">¿Listo para tu próximo tatuaje?</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[color:var(--color-primary)]">¿Listo para tu próximo viaje?</h2>
           <p className="text-base sm:text-lg md:text-xl text-[color:var(--color-muted)] max-w-2xl mx-auto px-4">
-            Visitá nuestro estudio o contactanos para reservar tu turno
+            Contactanos y diseñamos juntos tu próxima aventura
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación del estudio"
+                title="Ubicación de la agencia"
               />
             </div>
           </div>

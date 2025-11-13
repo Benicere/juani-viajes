@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(metadataCompany.metadataBase),
   title: {
     default: metadataCompany.title,
-    template: `%s | Estudio de Tatuajes`,
+    template: `%s | ${metadataCompany.title}`,
   },
   description: metadataCompany.description,
   openGraph: {
     title: metadataCompany.title,
     description: metadataCompany.description,
     url: "/",
-    siteName: "Estudio de Tatuajes",
+    siteName: metadataCompany.title,
     locale: 'es_ES',
     type: "website",
   },

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function FeaturedServices() {
   return (
-    <section className="py-20 bg-black/20">
+    <section className="py-20 bg-[color:var(--color-background)]">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function FeaturedServices() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105"
+              className="group bg-[color:var(--color-background-secondary)] rounded-xl p-6 hover:bg-[color:var(--color-background-secondary)]/80 transition-all duration-300 hover:scale-105 border border-[color:var(--color-muted)]/10"
             >
               <div className="relative mb-4 aspect-square rounded-lg overflow-hidden">
                 <Image
@@ -40,7 +40,7 @@ export default function FeaturedServices() {
                 />
               </div>
               
-              <h3 className="text-xl font-semibold mb-3 text-white">
+              <h3 className="text-xl font-semibold mb-3 text-[color:var(--color-foreground)]">
                 {service.title}
               </h3>
               
@@ -67,12 +67,14 @@ export default function FeaturedServices() {
           className="text-center mt-12"
         >
           <a
-            href="/servicios"
-            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-black font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
+            href="https://delapazturonline.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
           >
-            Ver todos los servicios
+            Reserva tu viaje
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
         </motion.div>

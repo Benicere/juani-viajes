@@ -10,9 +10,9 @@ export default function ServiciosPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-[color:var(--color-background)]">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-black/50 to-black/20">
+        <section className="py-20 bg-[color:var(--color-background)]">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export default function ServiciosPage() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
               >
                 <div className="order-2 lg:order-1">
-                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-[color:var(--color-foreground)]">
                     Paquetes Todo Incluido
                   </h3>
                   <p className="text-lg text-[color:var(--color-muted)] mb-6 leading-relaxed">
@@ -58,7 +58,7 @@ export default function ServiciosPage() {
                   </ul>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20">
                     <Image
                       src="/assets/nosotros/nosotros-1.webp"
                       alt="Paquetes todo incluido"
@@ -78,7 +78,7 @@ export default function ServiciosPage() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
               >
                 <div className="order-1">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20">
                     <Image
                       src="/assets/nosotros/nosotros-3.webp"
                       alt="Destinos personalizados"
@@ -89,7 +89,7 @@ export default function ServiciosPage() {
                   </div>
                 </div>
                 <div className="order-2">
-                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-[color:var(--color-foreground)]">
                     Destinos Personalizados
                   </h3>
                   <p className="text-lg text-[color:var(--color-muted)] mb-6 leading-relaxed">
@@ -113,7 +113,7 @@ export default function ServiciosPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+                <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-[color:var(--color-foreground)]">
                   Viajes de Aventura
                 </h3>
                                  <p className="text-lg text-[color:var(--color-muted)] mb-8 leading-relaxed">
@@ -171,18 +171,20 @@ export default function ServiciosPage() {
                 Contactanos y comencemos a diseñar juntos tu próxima experiencia inolvidable.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contacto"
+                <a
+                  href="https://delapazturonline.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-8 py-4 bg-[color:var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/90 transition-colors"
                 >
-                  Contactar
+                  Reserva tu viaje
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </Link>
+                </a>
                 <Link
                   href="/galeria"
-                  className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors"
+                  className="inline-flex items-center px-8 py-4 border-2 border-[color:var(--color-primary)] text-[color:var(--color-primary)] font-semibold rounded-lg hover:bg-[color:var(--color-primary)]/10 transition-colors"
                 >
                   Ver galería
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
