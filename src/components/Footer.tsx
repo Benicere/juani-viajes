@@ -106,7 +106,7 @@ export default function Footer() {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <GrvityLogo className='w-32 text-white hover:text-[#D1FA2D] transition-colors' />
+              <GrvityLogo className='w-32 text-[color:var(--color-primary)] hover:text-[#D1FA2D] transition-colors' />
             </a>
           </div>
         </div>

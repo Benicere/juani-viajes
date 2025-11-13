@@ -108,7 +108,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-12 sm:py-16">
+    <section id="gallery" className="py-12 sm:py-16 bg-[color:var(--color-background)]">
       <div className="container">
         {/* Título y subtítulo */}
         <div className="text-center mb-8 sm:mb-12">
@@ -147,7 +147,7 @@ export default function Gallery() {
               className="group cursor-pointer"
               onClick={() => openModal(index)}
             >
-              <div className="relative aspect-square rounded-lg overflow-hidden border border-white/10">
+              <div className="relative aspect-square rounded-lg overflow-hidden border border-[color:var(--color-muted)]/20">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -155,7 +155,7 @@ export default function Gallery() {
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-[color:var(--color-primary)]/0 group-hover:bg-[color:var(--color-primary)]/20 transition-colors duration-300" />
               </div>
             </motion.div>
           ))}

@@ -10,6 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -22,7 +23,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
-        scrolled
+        scrolled || !isHomePage
           ? "bg-[color:var(--color-background)]/80 backdrop-blur-md shadow-md border-b border-[color:var(--color-muted)]/20"
           : "bg-transparent backdrop-blur-0 shadow-none border-none"
       }`}
@@ -33,7 +34,7 @@ export default function Navbar() {
           <Link
             href="/"
             className={`flex items-center gap-2 transition-all ${
-              !scrolled ? "drop-shadow-lg" : ""
+              !scrolled && isHomePage ? "drop-shadow-lg" : ""
             }`}
           >
             <Image
@@ -54,7 +55,7 @@ export default function Navbar() {
                   key={item.id}
                   href={item.url}
                   className={`relative text-base sm:text-lg font-medium transition-colors ${
-                    scrolled
+                    scrolled || !isHomePage
                       ? isActive
                         ? "text-[color:var(--color-primary)]"
                         : "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]"
@@ -73,7 +74,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
-                scrolled
+                scrolled || !isHomePage
                   ? "bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--color-primary)]/90"
                   : "bg-white text-[color:var(--color-primary)] hover:bg-white/90 drop-shadow-lg"
               }`}
@@ -86,7 +87,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             className={`lg:hidden p-2 transition-colors ${
-              scrolled
+              scrolled || !isHomePage
                 ? "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]"
                 : "text-white drop-shadow-lg hover:text-white/80"
             }`}
@@ -111,7 +112,7 @@ export default function Navbar() {
         {isMobileOpen && (
           <div
             className={`lg:hidden py-4 border-t ${
-              scrolled ? "border-[color:var(--color-muted)]/20" : "border-white/10"
+              scrolled || !isHomePage ? "border-[color:var(--color-muted)]/20" : "border-white/10"
             }`}
           >
             <div className="flex flex-col space-y-4">
@@ -123,7 +124,7 @@ export default function Navbar() {
                     href={item.url}
                     onClick={() => setIsMobileOpen(false)}
                     className={`relative px-4 py-2 text-base font-medium transition-colors rounded-lg ${
-                      scrolled
+                      scrolled || !isHomePage
                         ? isActive
                           ? "text-[color:var(--color-primary)] bg-[color:var(--color-primary)]/10"
                           : "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/5"
@@ -145,7 +146,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileOpen(false)}
                 className={`px-4 py-2 text-center rounded-lg font-semibold transition-colors ${
-                  scrolled
+                  scrolled || !isHomePage
                     ? "bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--color-primary)]/90"
                     : "bg-white text-[color:var(--color-primary)] hover:bg-white/90"
                 }`}
