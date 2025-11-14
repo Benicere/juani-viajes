@@ -1,6 +1,6 @@
 "use client";
 import type React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,67 +11,83 @@ export default function ProgramasPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
-  const panStartRef = useRef<{ x: number; y: number } | null>(null);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
 
   const handleImageClick = (index: number) => {
     // Guardar el índice para mapear a la imagen del PDF (programa 1 = imagen 0003, programa 2 = imagen 0004, etc.)
     setSelectedImageIndex(index);
     setIsModalOpen(true);
-    setZoom(1); // Resetear zoom al abrir
-    setPan({ x: 0, y: 0 }); // Resetear pan al abrir
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedImageIndex(null);
-    setZoom(1); // Resetear zoom al cerrar
+    setZoom(1);
     setPan({ x: 0, y: 0 });
     setIsPanning(false);
   };
 
-  // Manejar zoom con la rueda del mouse
-  useEffect(() => {
-    if (!isModalOpen) return;
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 0.25, 3));
+  };
 
-    const handleWheel = (e: Event) => {
-      const wheelEvent = e as WheelEvent;
-      const imageContainer = document.querySelector('[data-image-container]');
-      if (imageContainer && imageContainer.contains(wheelEvent.target as Node)) {
-        wheelEvent.preventDefault();
-        const delta = wheelEvent.deltaY > 0 ? -0.1 : 0.1;
-        setZoom((prevZoom) => {
-          const newZoom = Math.max(0.5, Math.min(3, prevZoom + delta));
-          return newZoom;
-        });
-      }
-    };
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 0.25, 0.75));
+  };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [isModalOpen]);
+  const handleZoomReset = () => {
+    setZoom(1);
+  };
+
+  const handleWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const delta = e.deltaY > 0 ? -0.2 : 0.2;
+    setZoom((prev) => Math.max(0.5, Math.min(3, prev + delta)));
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsPanning(true);
-    panStartRef.current = {
-      x: e.clientX - pan.x,
-      y: e.clientY - pan.y,
-    };
+    setPan({ x: pan.x, y: pan.y });
+    (e.currentTarget as HTMLDivElement).style.cursor = "grabbing";
+  };
+
+  const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsPanning(false);
+    (e.currentTarget as HTMLDivElement).style.cursor = "grab";
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isPanning || !panStartRef.current) return;
+    if (!isPanning) return;
     e.preventDefault();
-    const newX = e.clientX - panStartRef.current.x;
-    const newY = e.clientY - panStartRef.current.y;
-    setPan({ x: newX, y: newY });
+    setPan((prev) => ({
+      x: prev.x + e.movementX,
+      y: prev.y + e.movementY,
+    }));
   };
 
-  const handleMouseUp = () => {
-    setIsPanning(false);
-  };
+  // Evitar scroll de la página cuando el modal está abierto
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalBodyOverflow || "";
+      document.documentElement.style.overflow = originalHtmlOverflow || "";
+    }
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow || "";
+      document.documentElement.style.overflow = originalHtmlOverflow || "";
+    };
+  }, [isModalOpen]);
 
   return (
     <>
@@ -207,7 +223,7 @@ export default function ProgramasPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-sm pt-32"
+            className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-sm pt-24"
             onClick={handleCloseModal}
           >
             {/* Modal content */}
@@ -222,36 +238,62 @@ export default function ProgramasPage() {
               {/* Botón cerrar */}
               <button
                 onClick={handleCloseModal}
-                className="absolute -top-4 -right-4 z-10 w-10 h-10 bg-white/10 backdrop-blur border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                className="absolute top-2 right-2 z-10 w-10 h-10 bg-white/10 backdrop-blur border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                 aria-label="Cerrar"
               >
                 ✕
               </button>
 
               {/* Imagen */}
-              <div className="bg-white rounded-lg overflow-auto shadow-2xl" style={{ maxHeight: "85vh" }}>
-                <div
-                  data-image-container
-                  className="relative w-full h-[85vh] flex items-center justify-center cursor-grab active:cursor-grabbing"
-                  style={{
-                    transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
-                    transformOrigin: "center",
-                    transition: isPanning ? "none" : "transform 0.1s ease-out",
-                  }}
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
-                >
-                  <Image
-                    src={`/assets/programas-imagenes/Manual DLP español_pages-to-jpg-${(selectedImageIndex ?? 0) + 1}-1.webp`}
-                    alt={`Programa ${(selectedImageIndex ?? 0) + 1}`}
-                    width={1200}
-                    height={1600}
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 80vw"
-                    quality={95}
-                  />
+              <div className="overflow-hidden">
+                <div className="relative w-full max-w-[min(95vw,1000px)] mx-auto overflow-hidden" style={{ height: "min(90vh, 120vw)" }}>
+                  <div
+                    className="relative w-full h-full flex items-center justify-center cursor-grab"
+                    style={{
+                      transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+                      transformOrigin: "center",
+                      transition: isPanning ? "none" : "transform 0.15s ease-out",
+                    }}
+                    onWheel={handleWheel}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                    onMouseMove={handleMouseMove}
+                  >
+                    <Image
+                      src={`/assets/programas-imagenes/Manual DLP español_pages-to-jpg-${(selectedImageIndex ?? 0) + 1}-1.webp`}
+                      alt={`Programa ${(selectedImageIndex ?? 0) + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 95vw, 70vw"
+                      quality={95}
+                    />
+                  </div>
+                </div>
+
+                {/* Controles de zoom */}
+                <div className="mt-3 flex justify-center gap-2 text-xs sm:text-sm">
+                  <button
+                    type="button"
+                    onClick={handleZoomOut}
+                    className="px-3 py-1 rounded-full border border-white/40 bg-black/40 text-white hover:bg-white/10 transition-colors"
+                  >
+                    −
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleZoomReset}
+                    className="px-3 py-1 rounded-full border border-white/40 bg-black/40 text-white hover:bg-white/10 transition-colors"
+                  >
+                    {Math.round(zoom * 100)}%
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleZoomIn}
+                    className="px-3 py-1 rounded-full border border-white/40 bg-black/40 text-white hover:bg-white/10 transition-colors"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </motion.div>
