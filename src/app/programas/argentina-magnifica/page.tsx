@@ -101,11 +101,11 @@ export default function ArgentinaMagnificaPage() {
                     {/* Columna izquierda: Itinerario en una sola columna */}
                     <div className="flex-1 space-y-1 text-[10px] sm:text-xs leading-tight break-words min-w-0">
                       <div>
-                        <p className="font-semibold">Día 1 | Europa – Buenos Aires</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 1 | Europa – Buenos Aires</p>
                         <p>Salida desde su país de origen con destino Buenos Aires. Noche a bordo.</p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 2 | Buenos Aires – Iguazú</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 2 | Buenos Aires – Iguazú</p>
                         <p>
                           Arribo al Aeropuerto Internacional de Ezeiza. Nuestro personal lo estará
                           esperando para asistirle en el cambio de terminal aérea y entregar la
@@ -115,7 +115,7 @@ export default function ArgentinaMagnificaPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 3 | Iguazú</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 3 | Iguazú</p>
                         <p>
                           Excursión de día completo al Parque Nacional Iguazú. Visita a las Cataratas
                           Argentinas, escenario impactante de una de las Siete Maravillas Naturales del
@@ -125,21 +125,21 @@ export default function ArgentinaMagnificaPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 4 | Iguazú</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 4 | Iguazú</p>
                         <p>
                           Excursión Parque Nacional Do Iguaçu, donde podrá contemplar una vista
                           panorámica de las cataratas.
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 5 | Iguazú – Buenos Aires – El Calafate</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 5 | Iguazú – Buenos Aires – El Calafate</p>
                         <p>
                           Traslado en servicio regular al aeropuerto para embarcar en el vuelo con
                           destino a El Calafate. Recepción y traslado regular al hotel seleccionado.
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 6 | El Calafate</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 6 | El Calafate</p>
                         <p>
                           Excursión de día completo al Parque Nacional Los Glaciares, donde recorrerá
                           las pasarelas frente al majestuoso Glaciar Perito Moreno, incluyendo una
@@ -147,7 +147,7 @@ export default function ArgentinaMagnificaPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 7 | El Calafate</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 7 | El Calafate</p>
                         <p>
                           Día de navegación en el Gran Lago Argentino en búsqueda de los glaciares
                           patagónicos. Recomendamos contratar como componentes de interés turístico las
@@ -156,14 +156,14 @@ export default function ArgentinaMagnificaPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 8 | El Calafate – Buenos Aires</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 8 | El Calafate – Buenos Aires</p>
                         <p>
                           Traslado al aeropuerto para embarcar en el vuelo de regreso a Buenos Aires.
                           Recepción y traslado regular al hotel seleccionado. Alojamiento.
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 9 | Buenos Aires</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 9 | Buenos Aires</p>
                         <p>
                           Recorrido por la Ciudad de Buenos Aires para conocer los puntos más
                           representativos: el Congreso Nacional, la Catedral Metropolitana, la Casa de
@@ -174,14 +174,14 @@ export default function ArgentinaMagnificaPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 10 | Buenos Aires libre</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 10 | Buenos Aires libre</p>
                         <p>
                           Se sugiere realizar una excursión opcional al Delta del Tigre, recorriendo el
                           Puerto de Frutos y navegando por el Río de la Plata.
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold">Día 11 | Buenos Aires – Europa</p>
+                        <p className="font-semibold" style={{ color: '#ED028C' }}>Día 11 | Buenos Aires – Europa</p>
                         <p>
                           Traslado privado al aeropuerto para embarcar en el vuelo Internacional que lo
                           llevará de regreso.
