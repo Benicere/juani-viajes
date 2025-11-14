@@ -120,7 +120,7 @@ export default function ArgentinaMagnificaPage() {
                           Excursión de día completo al Parque Nacional Iguazú. Visita a las Cataratas
                           Argentinas, escenario impactante de una de las Siete Maravillas Naturales del
                           Mundo. Durante un recorrido inolvidable, le recomendamos contratar, de manera
-                          opcional, "La Gran Aventura": una combinación entre un paseo náutico en botes
+                          opcional, &quot;La Gran Aventura&quot;: una combinación entre un paseo náutico en botes
                           zodiac y en vehículos descubiertos de doble tracción a través de la selva.
                         </p>
                       </div>
@@ -143,7 +143,7 @@ export default function ArgentinaMagnificaPage() {
                         <p>
                           Excursión de día completo al Parque Nacional Los Glaciares, donde recorrerá
                           las pasarelas frente al majestuoso Glaciar Perito Moreno, incluyendo una
-                          navegación opcional "Safari Náutico" frente a sus imponentes paredes de hielo.
+                          navegación opcional &quot;Safari Náutico&quot; frente a sus imponentes paredes de hielo.
                         </p>
                       </div>
                       <div>
@@ -151,7 +151,7 @@ export default function ArgentinaMagnificaPage() {
                         <p>
                           Día de navegación en el Gran Lago Argentino en búsqueda de los glaciares
                           patagónicos. Recomendamos contratar como componentes de interés turístico las
-                          opciones "Todo Glaciares" o "Ríos de Hielo". Estas navegaciones ofrecen vistas
+                          opciones &quot;Todo Glaciares&quot; o &quot;Ríos de Hielo&quot;. Estas navegaciones ofrecen vistas
                           inigualables recorriendo los maravillosos glaciares Upsala y Spegazzini.
                         </p>
                       </div>
