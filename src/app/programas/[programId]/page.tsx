@@ -29,15 +29,19 @@ function getProgramImages(programNumber: number): ProgramImage[] {
   if (!fs.existsSync(baseDir)) return [];
 
   const files = fs.readdirSync(baseDir);
-  const matchPrefix = new RegExp(`^argentina${programNumber}.*\\.webp$`, "i");
 
   const images = files
-    .filter((file) => matchPrefix.test(file))
-    .map((file) => ({
-      file,
-      url: `/assets/programas-inside/${file}`,
-      order: extractOrder(file),
-    }))
+    .map((file) => {
+      const program = extractProgramNumber(file);
+      return {
+        file,
+        program,
+        url: `/assets/programas-inside/${file}`,
+        order: extractOrder(file),
+      };
+    })
+    .filter((entry) => entry.program === programNumber)
+    .map(({ file, url, order }) => ({ file, url, order }))
     .sort((a, b) => {
       if (a.order !== b.order) return a.order - b.order;
       return a.file.localeCompare(b.file);
@@ -55,12 +59,20 @@ function extractOrder(file: string): number {
   return Number.MAX_SAFE_INTEGER;
 }
 
-export default function ProgramaDetallePage({
+function extractProgramNumber(file: string): number | null {
+  const match = file.toLowerCase().match(/^argentina(\d+)/);
+  if (!match) return null;
+  const num = parseInt(match[1], 10);
+  return Number.isFinite(num) ? num : null;
+}
+
+export default async function ProgramaDetallePage({
   params,
 }: {
-  params: { programId: string };
+  params: Promise<{ programId: string }>;
 }) {
-  const programNumber = Number(params.programId);
+  const { programId } = await params;
+  const programNumber = Number(programId);
   if (!Number.isFinite(programNumber) || programNumber < 1 || programNumber > 50) {
     notFound();
   }
