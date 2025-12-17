@@ -5,13 +5,24 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+// Asegurar prerender estático de los programas conocidos (1..10).
+const TOTAL_PROGRAMS = 10;
 
 type ProgramImage = {
   file: string;
   url: string;
   order: number;
 };
+
+export function generateStaticParams() {
+  return Array.from({ length: TOTAL_PROGRAMS }, (_, i) => ({
+    programId: String(i + 1),
+  }));
+}
 
 function getProgramImages(programNumber: number): ProgramImage[] {
   const baseDir = path.join(process.cwd(), "public", "assets", "programas-inside");
