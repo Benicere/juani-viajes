@@ -169,7 +169,7 @@ export default function ArgentinaMagnificaPage() {
                       <div>
                         <p className="font-semibold" style={{ color: '#ED028C' }}>Día 7 | El Calafate</p>
                         <p>
-                          Día de navegación en el Gran Lago Argentino en búsqueda de los glaciares
+                          Día de navegación en el Gran Lsgo Argentino en búsqueda de los glaciares
                           patagónicos. Recomendamos contratar como componentes de interés turístico las
                           opciones &quot;Todo Glaciares&quot; o &quot;Ríos de Hielo&quot;. Estas navegaciones ofrecen vistas
                           inigualables recorriendo los maravillosos glaciares Upsala y Spegazzini.
