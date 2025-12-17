@@ -9,13 +9,14 @@ export default function ArgentinaMagnificaPage() {
     <>
       <Navbar />
       <main className="bg-[color:var(--color-background)] text-neutral-800 min-h-screen">
-        <section className="py-10 sm:py-12 md:py-16">
+        {/* Contenido anterior oculto como borrador */}
+        <section className="py-10 sm:py-12 md:py-16 hidden">
           {/* Solo mostrar la imagen programa1.webp - más ancha que el contenedor, sin cortarse */}
           <div className="flex justify-center items-center -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-16">
             <div className="relative w-full max-w-[1800px] rounded-lg overflow-hidden shadow-xl">
+              {/* src="/assets/programa-1/programa1.webp" */}
               <Image
                 src="/assets/programa-1/programa1-1.png"
-                // src="/assets/programa-1/programa1.webp"
                 alt="Argentina Magnífica"
                 width={1800}
                 height={2400}
