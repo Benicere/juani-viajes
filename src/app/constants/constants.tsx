@@ -31,7 +31,7 @@ export const company = {
 
 export const navigation = [
   { id: "0", title: "Inicio", url: "/" },
-  { id: "1", title: "Destinos", url: "/galeria" },
+  { id: "1", title: "Destinos", url: "/destinos" },
   { id: "2", title: "Programas", url: "/programas" },
   { id: "3", title: "Nosotros", url: "/nosotros" },
   { id: "4", title: "Contacto", url: "/contacto" },
@@ -40,7 +40,7 @@ export const navigation = [
 export const hero = {
   title: "Descubrí el mundo, viví experiencias únicas",
   subtitle: "Especialistas en destinos increíbles y viajes personalizados. Contactanos y diseñamos juntos tu próxima aventura.",
-  primaryCta: { label: "Ver destinos", href: "/galeria" },
+  primaryCta: { label: "Ver destinos", href: "/destinos" },
   secondaryCta: { label: "Consultar", href: `https://wa.me/${company.whatsapp}` },
   styles: [
     "Europa",

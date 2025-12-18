@@ -85,7 +85,7 @@ export default async function ProgramaDetallePage({
       <Navbar />
       <main className="min-h-screen bg-[color:var(--color-background)] text-[color:var(--color-foreground)]">
         <section className="pt-8 pb-16">
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 flex flex-col gap-8">
+          <div className="max-w-5xl mx-auto px-3 sm:px-5 lg:px-8 flex flex-col gap-0">
             {images.length === 0 && (
               <div className="text-center text-[color:var(--color-muted)] bg-white rounded-xl border border-[color:var(--color-muted)]/20 px-6 py-10 shadow-sm">
                 Aún no hay imágenes para este programa.
@@ -100,10 +100,10 @@ export default async function ProgramaDetallePage({
                 <Image
                   src={img.url}
                   alt={`${title} - ${img.file}`}
-                  width={2000}
-                  height={3200}
+                  width={1400}
+                  height={2400}
                   className="w-full h-auto object-contain bg-white"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1440px) 98vw, 1800px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1440px) 92vw, 1200px"
                   priority
                 />
               </div>
