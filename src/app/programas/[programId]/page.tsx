@@ -85,29 +85,43 @@ export default async function ProgramaDetallePage({
       <Navbar />
       <main className="min-h-screen bg-[color:var(--color-background)] text-[color:var(--color-foreground)]">
         <section className="pt-8 pb-16">
-          <div className="max-w-5xl mx-auto px-3 sm:px-5 lg:px-8 flex flex-col gap-0">
+          <div className="max-w-screen-2xl mx-auto px-2 sm:px-6 lg:px-10">
             {images.length === 0 && (
               <div className="text-center text-[color:var(--color-muted)] bg-white rounded-xl border border-[color:var(--color-muted)]/20 px-6 py-10 shadow-sm">
                 Aún no hay imágenes para este programa.
               </div>
             )}
 
-            {images.map((img) => (
-              <div
-                key={img.file}
-                className="relative w-full rounded-lg border border-[color:var(--color-muted)]/30 shadow-sm bg-white overflow-hidden"
-              >
-                <Image
-                  src={img.url}
-                  alt={`${title} - ${img.file}`}
-                  width={1400}
-                  height={2400}
-                  className="w-full h-auto object-contain bg-white"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1440px) 92vw, 1200px"
-                  priority
-                />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {images.map((img, index) => {
+                const isOdd = images.length % 2 === 1;
+                const isLast = index === images.length - 1;
+                const centerLast = isOdd && isLast;
+
+                return (
+                  <div
+                    key={img.file}
+                    className={centerLast ? "lg:col-span-2 lg:flex lg:justify-center" : ""}
+                  >
+                    <div
+                      className={`relative w-full rounded-lg border border-[color:var(--color-muted)]/30 shadow-sm bg-white overflow-hidden ${
+                        centerLast ? "lg:max-w-[860px]" : ""
+                      }`}
+                    >
+                      <Image
+                        src={img.url}
+                        alt={`${title} - ${img.file}`}
+                        width={1600}
+                        height={2600}
+                        className="w-full h-auto object-contain bg-white"
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 50vw, 860px"
+                        priority
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       </main>
